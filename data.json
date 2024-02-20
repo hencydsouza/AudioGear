@@ -1,0 +1,58 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "MEZE - 99 NEO",
+            "url": "https://www.headphonezone.in/cdn/shop/products/Headphone-Zone-Meze-99-Neo-1160-1160-1.jpg?v=1591944478&width=1160",
+            "type": "Closed-Back Headphone"
+        },
+        {
+            "id": 2,
+            "title": "MEZE - 99 CLASSICS",
+            "url": "//www.headphonezone.in/cdn/shop/products/Headphone-Zone-Meze-99-Classics-gold-1160-1160-1.jpg?v=1591901374&width=1160",
+            "type": "Closed-Back Headphone"
+        },
+        {
+            "id": 3,
+            "title": "SENNHEISER - HD 560S",
+            "url": "https://www.headphonezone.in/cdn/shop/products/Headphone-Zone-Sennheiser-HD560S.jpg?v=1606982042&width=1160",
+            "type": "Open-Back Headphone"
+        },
+        {
+            "id": 4,
+            "title": "SENNHEISER - HD 600",
+            "url": "//www.headphonezone.in/cdn/shop/files/Headphone-Zone-Sennheiser-HD600-New-03.jpg?v=1696510005&width=1160",
+            "type": "Open-Back Headphone"
+        },
+        {
+            "id": 5,
+            "title": "AUDEZE - MM - 100",
+            "url": "//www.headphonezone.in/cdn/shop/files/Headphone-Zone-Audeze-MM-100-36.jpg?v=1683104433&width=1160",
+            "type": "Planar Magnetic Open Backs"
+        },
+        {
+            "id": 6,
+            "title": "SENNHEISER - HD 650",
+            "url": "//www.headphonezone.in/cdn/shop/products/Headphone-Zone-Sennheiser-HD-650-1160-1160-02.jpg?v=1630049196&width=1160",
+            "type": "Open-Back Headphone"
+        },
+        {
+            "id": 7,
+            "title": "SONY - MDR-MV1",
+            "url": "//www.headphonezone.in/cdn/shop/files/Headphone-Zone-Sony-MDR-MV1-04.jpg?v=1688104654&width=1160",
+            "type": "Open-Back Headphone"
+        },
+        {
+            "id": 8,
+            "title": "SIVGA - SV023",
+            "url": "//www.headphonezone.in/cdn/shop/files/Headphone-Zone-SIVGA-SV023-01.jpg?v=1694006793&width=1160",
+            "type": "Semi-Open Back Headphone"
+        },
+        {
+            "id": 9,
+            "title": "GRADO - SR80X",
+            "url": "//www.headphonezone.in/cdn/shop/products/Headphone-Zone-Grado-SR125x-01.jpg?v=1647947259&width=1160",
+            "type": "Open-Back Headphone"
+        }
+    ]
+}
