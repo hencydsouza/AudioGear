@@ -15,14 +15,15 @@ function renderProducts(renderData) {
     productEl.innerHTML = ''
     for (let i = 0; i < renderData.length; i++) {
         productEl.innerHTML +=
-            `<div class="col-md-6 col-lg-4 col-xl-3">
+            `<div class="col-sm-6 col-lg-4 col-xl-3">
             <div class="card" id="${renderData[i].id}">
-                <img src="${renderData[i].url}"
-                    class="card-img-top" alt="...">
+                <img src="${renderData[i].url}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${renderData[i].title}</h5>
                     <p class="card-text">${renderData[i].type}</p>
-                    <a href="#" id="addBtn" class="btn btn-primary">Add to cart</a>
+                    <p class="price">&#8377; ${renderData[i].price}</p>
+                    <div class="rating"><i class="bi bi-star-fill"></i> ${renderData[i].rating} (${renderData[i].ratingCount})</div>
+                    <a href="#" id="addBtn" class="btn btn-primary"><i class="bi bi-cart-plus"></i> Add to Cart</a>
                 </div>
             </div>
         </div>`
