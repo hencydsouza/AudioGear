@@ -23,7 +23,7 @@ function renderProducts(renderData) {
                     <p class="card-text">${renderData[i].type}</p>
                     <p class="price">&#8377; ${renderData[i].price}</p>
                     <div class="rating"><i class="bi bi-star-fill"></i> ${renderData[i].rating} (${renderData[i].ratingCount})</div>
-                    <a href="#" id="addBtn" class="btn btn-primary"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+                    <a id="addBtn" class="btn btn-primary"><i class="bi bi-cart-plus"></i> Add to Cart</a>
                 </div>
             </div>
         </div>`
