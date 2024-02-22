@@ -11,7 +11,7 @@ body {
   font-family: Roboto, sans-serif;
   background-color: #f9f9f9;
   font-weight: bold;
-  color: 68 68 68;
+  color: rgb(68, 68, 68);
   padding: 1.4rem 3rem;
 }
 .navbar #searchBtn {

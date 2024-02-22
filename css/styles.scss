@@ -18,7 +18,7 @@ body {
     font-family: $text-font-family;
     background-color: $body-bg;
     font-weight: bold;
-    color: $text-color;
+    color: rgb($text-color);
     // background-color: lightcoral;
     padding: 1.4rem 3rem;
     // align-items: center;
