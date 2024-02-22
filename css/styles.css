@@ -63,6 +63,12 @@ body {
   color: #fff;
   font-size: 0.8rem;
 }
+.cover-images .cover-text .btn {
+  color: #fff;
+  border-color: #3c07ff;
+  font-size: 0.8rem;
+  border-radius: 20px;
+}
 @media only screen and (max-width: 575px) {
   .cover-images .image1 {
     display: none;
@@ -81,6 +87,9 @@ body {
   .cover-images .cover-text p {
     font-size: 0.5rem;
   }
+  .cover-images .cover-text .btn {
+    font-size: 0.7rem;
+  }
 }
 @media screen and (min-width: 992px) {
   .cover-images .cover-text {
@@ -92,6 +101,9 @@ body {
     top: 1rem;
   }
   .cover-images .cover-text p {
+    font-size: 1rem;
+  }
+  .cover-images .cover-text .btn {
     font-size: 1rem;
   }
 }
@@ -120,7 +132,7 @@ body {
 }
 .dropdown ul li a {
   font-weight: 600;
-  color: #3c07ff;
+  color: 68 68 68;
 }
 
 .card {
