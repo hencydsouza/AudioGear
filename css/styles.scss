@@ -1,12 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sora:wght@100..800&display=swap');
 
 $body-bg: #f9f9f9;
 $text-font-family: Roboto, sans-serif;
 $text-color: 68 68 68;
 $pirce-color: 60 7 255;
+$blue-color: #3c07ff;
 
 body {
     background-color: $body-bg;
+}
+
+.navbar {
+    font-family: $text-font-family;
+    background-color: $body-bg;
+    font-weight: bold;
+    color: $text-color;
+    // background-color: lightcoral;
+    padding: 1.4rem 0;
+    // align-items: center;
+
+    // .nav-icons {
+    //     width: 75px;
+    //     align-items: center;
+    //     justify-content: space-between;
+
+    //     i {
+    //         color: #444;
+    //         font-size: 22px;
+    //     }
+    // }
+
+    #searchBtn {
+        color: $blue-color;
+        border-color: $blue-color;
+        // border: none;
+
+        &:hover {
+            background-color: #3c07ff;
+            color: #fff;
+        }
+    }
+
+    #search-bar {
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid $blue-color;
+    }
+
+    .navbar-toggler {
+        border: 0;
+    }
+}
+
+.cover-images {
+    overflow: hidden;
+
+    .image2 {
+        display: none;
+    }
+
+    .cover-text {
+        font-family: 'Sora', sans-serif;
+        top: 5rem;
+        left: 4rem;
+        width: 100%;
+        // margin: 0 5rem;
+        // margin-top: 15rem;
+
+        h1 {
+            display: inline-block;
+            color: #fff;
+            font-weight: 700;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        p {
+            color: #fff;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media only screen and (max-width: 575px) {
+        .image1 {
+            display: none;
+        }
+
+        .image2 {
+            display: inline;
+        }
+
+        .cover-text {
+            text-align: center;
+            left: auto;
+            top: 3rem;
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 0.5rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: 992px) {
+        .cover-text {
+            // text-align: center;
+            top: 6rem;
+            left: 6rem;
+
+            h1 {
+                font-size: 4rem;
+                top: 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1800px) {
+        .cover-text {
+            // text-align: center;
+            top: 15rem;
+
+            h1 {
+                font-size: 6rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+            }
+        }
+    }
 }
 
 .card {
@@ -15,18 +144,18 @@ body {
     font-family: $text-font-family;
     color: rgb($text-color);
 
-    .card-img-top{
+    &-img-top {
         margin: 10px 0;
     }
 
-    .card-title {
+    &-title {
         font-size: 1.1rem;
         letter-spacing: 2px;
         font-weight: bold;
         margin-bottom: 4px;
     }
 
-    .card-text {
+    &-text {
         font-size: 0.8rem;
         margin-bottom: 4px;
         font-weight: 500;
@@ -35,8 +164,9 @@ body {
     #addBtn {
         margin-top: 5px;
         font-size: 0.8rem;
-        width: 150px;
+        // width: 75%;
         border-radius: 20px;
+        background-color: $blue-color;
     }
 
     .rating {
@@ -54,5 +184,42 @@ body {
         margin-bottom: 4px;
         letter-spacing: 1px;
         // color: rgb($pirce-color);
+    }
+}
+
+.footer {
+    color: rgb($text-color);
+    text-align: center;
+
+    hr {
+        margin-bottom: 0;
+    }
+
+    .footer-icons {
+        margin: 0.8rem 0;
+
+        i {
+            font-size: 1.2rem;
+            margin-right: 2rem;
+        }
+    }
+
+
+
+    p {
+        font-weight: 400;
+        font-size: 0.9rem;
+    }
+
+    @media screen and (max-width: 575px) {
+        .footer-icons {
+            margin: 0.5rem 0;
+
+            i {
+                font-size: 1.1rem;
+                margin-right: 1rem;
+
+            }
+        }
     }
 }

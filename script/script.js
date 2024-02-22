@@ -15,7 +15,7 @@ function renderProducts(renderData) {
     productEl.innerHTML = ''
     for (let i = 0; i < renderData.length; i++) {
         productEl.innerHTML +=
-            `<div class="col-sm-6 col-lg-4 col-xl-3">
+        `<div class="col-6 col-sm-6 col-lg-4 col-xl-3">
             <div class="card" id="${renderData[i].id}">
                 <img src="${renderData[i].url}" class="card-img-top" alt="...">
                 <div class="card-body">

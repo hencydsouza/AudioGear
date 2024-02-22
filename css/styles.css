@@ -1,6 +1,97 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sora:wght@100..800&display=swap");
 body {
   background-color: #f9f9f9;
+}
+
+.navbar {
+  font-family: Roboto, sans-serif;
+  background-color: #f9f9f9;
+  font-weight: bold;
+  color: 68 68 68;
+  padding: 1.4rem 0;
+}
+.navbar #searchBtn {
+  color: #3c07ff;
+  border-color: #3c07ff;
+}
+.navbar #searchBtn:hover {
+  background-color: #3c07ff;
+  color: #fff;
+}
+.navbar #search-bar {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #3c07ff;
+}
+.navbar .navbar-toggler {
+  border: 0;
+}
+
+.cover-images {
+  overflow: hidden;
+}
+.cover-images .image2 {
+  display: none;
+}
+.cover-images .cover-text {
+  font-family: "Sora", sans-serif;
+  top: 5rem;
+  left: 4rem;
+  width: 100%;
+}
+.cover-images .cover-text h1 {
+  display: inline-block;
+  color: #fff;
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 0;
+}
+.cover-images .cover-text p {
+  color: #fff;
+  font-size: 0.8rem;
+}
+@media only screen and (max-width: 575px) {
+  .cover-images .image1 {
+    display: none;
+  }
+  .cover-images .image2 {
+    display: inline;
+  }
+  .cover-images .cover-text {
+    text-align: center;
+    left: auto;
+    top: 3rem;
+  }
+  .cover-images .cover-text h1 {
+    font-size: 2rem;
+  }
+  .cover-images .cover-text p {
+    font-size: 0.5rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .cover-images .cover-text {
+    top: 6rem;
+    left: 6rem;
+  }
+  .cover-images .cover-text h1 {
+    font-size: 4rem;
+    top: 1rem;
+  }
+  .cover-images .cover-text p {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .cover-images .cover-text {
+    top: 15rem;
+  }
+  .cover-images .cover-text h1 {
+    font-size: 6rem;
+  }
+  .cover-images .cover-text p {
+    font-size: 1.5rem;
+  }
 }
 
 .card {
@@ -9,16 +100,16 @@ body {
   font-family: Roboto, sans-serif;
   color: rgb(68, 68, 68);
 }
-.card .card-img-top {
+.card-img-top {
   margin: 10px 0;
 }
-.card .card-title {
+.card-title {
   font-size: 1.1rem;
   letter-spacing: 2px;
   font-weight: bold;
   margin-bottom: 4px;
 }
-.card .card-text {
+.card-text {
   font-size: 0.8rem;
   margin-bottom: 4px;
   font-weight: 500;
@@ -26,8 +117,8 @@ body {
 .card #addBtn {
   margin-top: 5px;
   font-size: 0.8rem;
-  width: 150px;
   border-radius: 20px;
+  background-color: #3c07ff;
 }
 .card .rating {
   font-size: 0.7rem;
@@ -41,4 +132,32 @@ body {
   font-weight: 600;
   margin-bottom: 4px;
   letter-spacing: 1px;
+}
+
+.footer {
+  color: rgb(68, 68, 68);
+  text-align: center;
+}
+.footer hr {
+  margin-bottom: 0;
+}
+.footer .footer-icons {
+  margin: 0.8rem 0;
+}
+.footer .footer-icons i {
+  font-size: 1.2rem;
+  margin-right: 2rem;
+}
+.footer p {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+@media screen and (max-width: 575px) {
+  .footer .footer-icons {
+    margin: 0.5rem 0;
+  }
+  .footer .footer-icons i {
+    font-size: 1.1rem;
+    margin-right: 1rem;
+  }
 }/*# sourceMappingURL=styles.css.map */
