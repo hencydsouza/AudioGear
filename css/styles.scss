@@ -10,6 +10,10 @@ body {
     background-color: $body-bg;
 }
 
+.btn{
+    transition: 0s;
+}
+
 .navbar {
     font-family: $text-font-family;
     background-color: $body-bg;
