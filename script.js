@@ -6,7 +6,7 @@ let user = {
 }
 
 
-await fetch('../data.json').then((response) => response.json()).then((json) => {
+await fetch('data.json').then((response) => response.json()).then((json) => {
     data = json.data
 })
 
