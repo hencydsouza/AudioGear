@@ -8,7 +8,7 @@ body {
   background-color: #f9f9f9;
   font-weight: bold;
   color: 68 68 68;
-  padding: 1.4rem 0;
+  padding: 1.4rem 3rem;
 }
 .navbar #searchBtn {
   color: #3c07ff;
@@ -23,12 +23,15 @@ body {
   border-radius: 0;
   border-bottom: 2px solid #3c07ff;
 }
-.navbar .navbar-toggler {
+.navbar-toggler {
   border: 0;
+}
+.navbar-toggler:active {
+  box-shadow: 0 0 0 #3c07ff;
 }
 @media screen and (max-width: 575px) {
   .navbar {
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.5rem;
   }
 }
 
@@ -124,6 +127,10 @@ body {
   font-size: 0.8rem;
   border-radius: 20px;
   background-color: #3c07ff;
+}
+.card #addBtn:active {
+  color: #3c07ff;
+  background-color: #fff;
 }
 .card .rating {
   font-size: 0.7rem;

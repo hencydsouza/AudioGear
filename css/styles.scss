@@ -16,7 +16,7 @@ body {
     font-weight: bold;
     color: $text-color;
     // background-color: lightcoral;
-    padding: 1.4rem 0;
+    padding: 1.4rem 3rem;
     // align-items: center;
 
     // .nav-icons {
@@ -47,12 +47,17 @@ body {
         border-bottom: 2px solid $blue-color;
     }
 
-    .navbar-toggler {
+    &-toggler {
         border: 0;
+
+        &:active{
+            box-shadow: 0 0 0 $blue-color;
+        }
+
     }
 
     @media screen and (max-width: 575px) {
-        padding: 0.5rem 0;
+        padding: 0.5rem 0.5rem;
     }
 }
 
@@ -171,6 +176,11 @@ body {
         // width: 75%;
         border-radius: 20px;
         background-color: $blue-color;
+
+        &:active{
+            color: $blue-color;
+            background-color: #fff;
+        }
     }
 
     .rating {
