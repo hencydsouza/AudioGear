@@ -26,6 +26,11 @@ body {
 .navbar .navbar-toggler {
   border: 0;
 }
+@media screen and (max-width: 575px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+}
 
 .cover-images {
   overflow: hidden;
