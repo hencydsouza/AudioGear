@@ -70,12 +70,12 @@ body {
         }
     }
 
-    #hidden-option {
-        display: none;
-    }
+    // #hidden-option {
+    //     display: none;
+    // }
 }
 
-#searchBtn {
+.searchBtn {
     color: $blue-color;
     border-color: $blue-color;
     // border: none;
@@ -87,7 +87,7 @@ body {
     }
 }
 
-#search-bar {
+.search-bar {
     // border: none;
     border-radius: 0;
     border-bottom: 2px solid $blue-color;

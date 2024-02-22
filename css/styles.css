@@ -43,21 +43,18 @@ body {
   font-size: 1.4rem;
   margin-right: 0.2rem;
 }
-.navbar #hidden-option {
-  display: none;
-}
 
-#searchBtn {
+.searchBtn {
   color: #3c07ff;
   border-color: #3c07ff;
   border-radius: 8px;
 }
-#searchBtn:hover {
+.searchBtn:hover {
   background-color: #3c07ff;
   color: #fff;
 }
 
-#search-bar {
+.search-bar {
   border-radius: 0;
   border-bottom: 2px solid #3c07ff;
 }

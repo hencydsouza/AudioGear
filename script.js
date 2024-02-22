@@ -1,5 +1,5 @@
 const productEl = document.getElementById('products')
-const searchBtn = document.getElementById('searchBtn')
+const searchBtn = document.getElementsByClassName('searchBtn')
 let data = []
 let user = {
     products: []
@@ -14,7 +14,7 @@ function renderProducts(renderData) {
     productEl.innerHTML = ''
     for (let i = 0; i < renderData.length; i++) {
         productEl.innerHTML +=
-        `<div class="col-6 col-sm-6 col-lg-4 col-xl-3">
+            `<div class="col-6 col-sm-6 col-lg-4 col-xl-3">
             <div class="card" id="${renderData[i].id}">
                 <img src="${renderData[i].url}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -37,18 +37,20 @@ function renderProducts(renderData) {
     console.log(user)
 }
 
-searchBtn.addEventListener('click', () => {
-    const searchBox = searchBtn.parentElement.firstElementChild
-    const value = searchBox.value.toLowerCase()
-    searchBox.value = ''
-    let newData = []
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].title.toLowerCase().includes(value)) {
-            newData.push(data[i])
+for (let i = 0; i < searchBtn.length; i++) {
+    searchBtn[i].addEventListener('click', () => {
+        const searchBox = searchBtn[i].parentElement.firstElementChild
+        const value = searchBox.value.toLowerCase()
+        searchBox.value = ''
+        let newData = []
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].title.toLowerCase().includes(value)) {
+                newData.push(data[i])
+            }
         }
-    }
-    renderProducts(newData)
-})
+        renderProducts(newData)
+    })
+}
 
 function addToCart(e) {
     const parent = e.parentElement.parentElement
@@ -62,14 +64,12 @@ function test() {
 }
 
 const navToggler = document.getElementById('navbar-toggler-button')
-navToggler.addEventListener("click",()=>{
+navToggler.addEventListener("click", () => {
     // console.log(navToggler.getAttribute('aria-expanded'))
-    if(navToggler.getAttribute('aria-expanded')==='true'){
+    if (navToggler.getAttribute('aria-expanded') === 'true') {
         document.getElementById('cart-icon').style.display = 'none'
-        document.getElementById('hidden-option').style.display = 'block'
-    } else  if(navToggler.getAttribute('aria-expanded')==='false') {
+    } else if (navToggler.getAttribute('aria-expanded') === 'false') {
         document.getElementById('cart-icon').style.display = 'block'
-        document.getElementById('hidden-option').style.display = 'none'
     }
 })
 
