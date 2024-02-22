@@ -6,11 +6,15 @@ $text-color: 68 68 68;
 $pirce-color: 60 7 255;
 $blue-color: #3c07ff;
 
+* {
+    transition: 0.1s;
+}
+
 body {
     background-color: $body-bg;
 }
 
-.btn{
+.btn {
     transition: 0s;
 }
 
@@ -18,7 +22,7 @@ body {
     font-family: $text-font-family;
     background-color: $body-bg;
     font-weight: bold;
-    color: rgb($text-color);
+    color: ($text-color);
     // background-color: lightcoral;
     padding: 1.4rem 3rem;
     // align-items: center;
@@ -34,22 +38,8 @@ body {
     //     }
     // }
 
-    #searchBtn {
-        color: $blue-color;
-        border-color: $blue-color;
-        // border: none;
-        border-radius: 8px;
-
-        &:hover {
-            background-color: #3c07ff;
-            color: #fff;
-        }
-    }
-
-    #search-bar {
-        border: none;
-        border-radius: 0;
-        border-bottom: 2px solid $blue-color;
+    .logo {
+        height: 40px;
     }
 
     &-toggler {
@@ -63,7 +53,44 @@ body {
 
     @media screen and (max-width: 575px) {
         padding: 0.5rem 0.5rem;
+
+        .logo {
+            height: 30px;
+        }
     }
+
+    #cart-icon {
+        // justify-content: center;
+        display: flex;
+        align-items: center;
+
+        i {
+            font-size: 1.4rem;
+            margin-right: 0.2rem;
+        }
+    }
+
+    #hidden-option {
+        display: none;
+    }
+}
+
+#searchBtn {
+    color: $blue-color;
+    border-color: $blue-color;
+    // border: none;
+    border-radius: 8px;
+
+    &:hover {
+        background-color: #3c07ff;
+        color: #fff;
+    }
+}
+
+#search-bar {
+    // border: none;
+    border-radius: 0;
+    border-bottom: 2px solid $blue-color;
 }
 
 .cover-images {
@@ -94,7 +121,7 @@ body {
             font-size: 0.8rem;
         }
 
-        .btn{
+        .btn {
             color: #fff;
             border-color: $blue-color;
             font-size: 0.8rem;
@@ -128,7 +155,7 @@ body {
                 font-size: 0.5rem;
             }
 
-            .btn{
+            .btn {
                 font-size: 0.7rem;
             }
         }
@@ -149,7 +176,7 @@ body {
                 font-size: 1rem;
             }
 
-            .btn{
+            .btn {
                 font-size: 1rem;
             }
         }
