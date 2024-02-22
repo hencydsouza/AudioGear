@@ -13,6 +13,7 @@ body {
 .navbar #searchBtn {
   color: #3c07ff;
   border-color: #3c07ff;
+  border-radius: 8px;
 }
 .navbar #searchBtn:hover {
   background-color: #3c07ff;
@@ -100,6 +101,22 @@ body {
   .cover-images .cover-text p {
     font-size: 1.5rem;
   }
+}
+
+.dropdown .btn {
+  font-weight: 600;
+  color: #3c07ff;
+  background-color: inherit;
+  border-color: #3c07ff;
+  border-radius: 50px;
+}
+.dropdown .btn:active {
+  background-color: #3c07ff;
+  color: #fff;
+}
+.dropdown ul li a {
+  font-weight: 600;
+  color: #3c07ff;
 }
 
 .card {

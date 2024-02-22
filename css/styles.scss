@@ -34,6 +34,7 @@ body {
         color: $blue-color;
         border-color: $blue-color;
         // border: none;
+        border-radius: 8px;
 
         &:hover {
             background-color: #3c07ff;
@@ -50,7 +51,7 @@ body {
     &-toggler {
         border: 0;
 
-        &:active{
+        &:active {
             box-shadow: 0 0 0 $blue-color;
         }
 
@@ -147,6 +148,26 @@ body {
     }
 }
 
+.dropdown {
+    .btn {
+        font-weight: 600;
+        color: $blue-color;
+        background-color: inherit;
+        border-color: $blue-color;
+        border-radius: 50px;
+
+        &:active {
+            background-color: $blue-color;
+            color: #fff;
+        }
+    }
+
+    ul li a {
+        font-weight: 600;
+        color: $blue-color;
+    }
+}
+
 .card {
     border: none;
     text-align: center;
@@ -177,7 +198,7 @@ body {
         border-radius: 20px;
         background-color: $blue-color;
 
-        &:active{
+        &:active {
             color: $blue-color;
             background-color: #fff;
         }
