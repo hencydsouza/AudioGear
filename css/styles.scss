@@ -82,8 +82,12 @@ body {
     border-radius: 8px;
 
     &:hover {
-        background-color: #3c07ff;
+        background-color: $blue-color;
         color: #fff;
+    }
+
+    &:active {
+        background: $blue-color;
     }
 }
 
@@ -306,5 +310,94 @@ body {
 
             }
         }
+    }
+}
+
+
+// cart.html
+.cart-container {
+    h1 {
+        font-family: Sora;
+        font-weight: 600;
+        margin-bottom: 15px;
+        // text-align: center;
+    }
+
+    #cart-container-inner{
+
+        .price {
+            font-weight: 600;
+            // font-size: 0.8rem;
+        }
+
+        .btn{
+            background-color: #fff;
+            color: $blue-color;
+            border-color: $blue-color;
+
+            &:active{
+                background-color: $blue-color;
+                color: #fff;
+                border-color: $blue-color;
+            }
+        }
+
+        .btn-outline-primary{
+            // color: rgb($text-color);
+            background-color: #fff;
+
+            &:active{
+                // color: rgb($text-color);
+                color: $blue-color;
+                background-color: #fff;
+                border-color: $blue-color;
+            }
+        }
+    }
+
+    @media screen and (max-width: 575px) {
+        // h1 {
+        //     color: red;
+        //     // text-align: left;
+        // }
+    }
+
+    @media screen and (max-width: 768px) {
+        h1 {
+            // color: blue;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.total{
+    .price-container{
+        // padding-right: 1.2rem;
+
+        .price{
+            margin: 0;
+        }
+    }
+
+    .btn{
+        color: $blue-color;
+        border-color: $blue-color;
+
+        &:hover{
+            background-color: $body-bg;
+            border-color: $blue-color;
+        }
+
+        &:active{
+            background-color: $blue-color;
+            color: #fff;
+        }
+
+        
+    }
+
+    .checkout-container{
+        padding: 0 1.5rem;
     }
 }

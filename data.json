@@ -5,7 +5,7 @@
             "title": "MEZE - 99 NEO",
             "url": "./images/headphones/Meze-99-Neo-1160-1160-1.webp",
             "type": "Closed-Back Headphone",
-            "price": "12,999",
+            "price": 12999,
             "rating": "4.7",
             "ratingCount": "79"
         },
@@ -14,7 +14,7 @@
             "title": "MEZE - 99 CLASSICS",
             "url": "./images/headphones/Meze-99-Classics-gold-1160-1160-1.webp",
             "type": "Closed-Back Headphone",
-            "price": "26,999",
+            "price": 26999,
             "rating": "4.7",
             "ratingCount": "100"
         },
@@ -23,7 +23,7 @@
             "title": "SENNHEISER - HD 560S",
             "url": "./images/headphones/Sennheiser-HD560S.webp",
             "type": "Open-Back Headphone",
-            "price": "15,990",
+            "price": 15990,
             "rating": "4.9",
             "ratingCount": "23"
         },
@@ -32,7 +32,7 @@
             "title": "SENNHEISER - HD 600",
             "url": "./images/headphones/Sennheiser-HD600-New-03.webp",
             "type": "Open-Back Headphone",
-            "price": "19,990",
+            "price": 19990,
             "rating": "4.8",
             "ratingCount": "21"
         },
@@ -41,7 +41,7 @@
             "title": "AUDEZE - MM - 100",
             "url": "./images/headphones/Audeze-MM-100-36.webp",
             "type": "Planar Magnetic Open Backs",
-            "price": "39,990",
+            "price": 39990,
             "rating": "4.6",
             "ratingCount": "5"
         },
@@ -50,7 +50,7 @@
             "title": "SENNHEISER - HD 650",
             "url": "./images/headphones/Sennheiser-HD-650-1160-1160-02.webp",
             "type": "Open-Back Headphone",
-            "price": "22,490",
+            "price": 22490,
             "rating": "4.8",
             "ratingCount": "50"
         },
@@ -59,7 +59,7 @@
             "title": "SONY - MDR-MV1",
             "url": "./images/headphones/Sony-MDR-MV1-04.jpg",
             "type": "Open-Back Headphone",
-            "price": "24,990",
+            "price": 24990,
             "rating": "5.0",
             "ratingCount": "2"
         },
@@ -68,7 +68,7 @@
             "title": "SIVGA - SV023",
             "url": "./images/headphones/SIVGA-SV023-01.jpg",
             "type": "Semi-Open Back Headphone",
-            "price": "37,999",
+            "price": 37999,
             "rating": "5.0",
             "ratingCount": "2"
         },
@@ -77,7 +77,7 @@
             "title": "GRADO - SR80X",
             "url": "./images/headphones/Grado-SR125x-01.jpg",
             "type": "Open-Back Headphone",
-            "price": "13,999",
+            "price": 13999,
             "rating": "4.5",
             "ratingCount": "27"
         }

@@ -63,6 +63,7 @@ function test() {
     console.log('clicked')
 }
 
+// cart button toggler
 const navToggler = document.getElementById('navbar-toggler-button')
 navToggler.addEventListener("click", () => {
     // console.log(navToggler.getAttribute('aria-expanded'))
