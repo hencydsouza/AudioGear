@@ -262,6 +262,9 @@ body {
   }
 }
 
+.total {
+  font-family: Sora;
+}
 .total .price-container .price {
   margin: 0;
 }
