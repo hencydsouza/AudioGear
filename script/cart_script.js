@@ -41,11 +41,11 @@ function renderCartItems(cartArr) {
                         <div class="pe-lg-3 mt-auto mb-auto">
                             <div class="btn-group">
                                 <button href="#" class="btn btn-primary px-1 py-1 p-md-2"><i
-                                        class="bi bi-plus-lg"></i></button>
+                                        class="bi bi-dash-lg"></i></button>
                                 <div href="#" class="btn btn-outline-primary px-2 px-md-2 py-md-2 py-1">
                                     &nbsp;2&nbsp;</div>
                                 <button href="#" class="btn btn-primary px-1 py-1 p-md-2"><i
-                                        class="bi bi-dash-lg"></i></button>
+                                        class="bi bi-plus-lg"></i></button>
                             </div>
                         </div>
                     </div>
