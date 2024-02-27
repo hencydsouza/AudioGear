@@ -40,7 +40,7 @@ body {
   align-items: center;
 }
 .navbar #cart-icon i {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-right: 0.2rem;
 }
 .navbar .cart-icon-container {
@@ -288,8 +288,9 @@ body {
   }
 }
 
-#cart-counter {
-  color: red;
+.badge {
+  background-color: #3c07ff;
+  color: #fff;
 }
 
 .empty-msg i {
@@ -300,14 +301,14 @@ body {
   background-color: #3c07ff;
   border-color: #3c07ff;
 }
-.empty-msg h2 .btn:active {
-  background-color: #fff;
-  color: #3c07ff;
-}
 .empty-msg h2 .btn:hover {
   background-color: #3c07ff;
   border-color: #3c07ff;
   color: #fff;
+}
+.empty-msg h2 .btn:active {
+  background-color: #fff;
+  color: #3c07ff;
 }
 
 .total {
@@ -381,11 +382,15 @@ body {
   font-size: 3rem;
   color: #3c07ff;
 }
-
-.dot {
-  height: 25px;
-  width: 25px;
-  background-color: red;
-  border-radius: 50%;
-  display: inline-block;
+.success .btn {
+  background-color: #3c07ff;
+  border-color: #3c07ff;
+}
+.success .btn:hover {
+  background-color: #3c07ff;
+  border-color: #3c07ff;
+}
+.success .btn:active {
+  background-color: #fff;
+  color: #3c07ff;
 }/*# sourceMappingURL=styles.css.map */
