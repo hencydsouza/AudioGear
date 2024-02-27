@@ -43,15 +43,12 @@ function cartCounter() {
         count += cart[Object.keys(cart)[i]]
     }
     // console.log(count)
-    if (count)
-        counterEle.innerHTML = count
-
-    totalEle.innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
-    // console.log(totalEle)
+    count ? counterEle.innerHTML = count : counterEle.innerHTML = ''
 }
 
 function loadData() {
-    return JSON.parse(localStorage.getItem("cart"))
+    let data = JSON.parse(localStorage.getItem("cart"))
+    return data ? data : {}
 }
 
 function startup() {

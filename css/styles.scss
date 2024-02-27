@@ -376,6 +376,12 @@ body {
                 border-color: $blue-color;
             }
         }
+
+        .red-bg{
+            background-color: red;
+            color: #fff;
+            // border-color: red;
+        }
     }
 
     @media screen and (max-width: 575px) {
@@ -394,9 +400,32 @@ body {
     }
 }
 
+#cart-counter{
+    color: red;
+}
+
 .empty-msg {
     i {
         color: $blue-color;
+    }
+
+    h2 {
+        .btn{
+            font-family: Sora;
+            background-color: $blue-color;
+            border-color: $blue-color;
+
+            &:active {
+                background-color: #fff;
+                color: $blue-color;
+            }
+
+            &:hover {
+                background-color: $blue-color;
+                border-color: $blue-color;
+                color: #fff;
+            }
+        }
     }
 }
 

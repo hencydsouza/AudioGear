@@ -35,15 +35,15 @@ function renderProducts(renderData) {
     }
 
     const removeBtn = document.querySelectorAll('#removeBtn')
-    for(let i=0;i<removeBtn.length;i++){
-        removeBtn[i].addEventListener('click',()=>{
+    for (let i = 0; i < removeBtn.length; i++) {
+        removeBtn[i].addEventListener('click', () => {
             const id = removeBtn[i].parentElement.parentElement.getAttribute('id')
             delete cart[id]
             saveData(cart)
             renderProducts(data)
+            cartCounter()
         })
     }
-
 
     cartCounter()
 }
@@ -100,8 +100,8 @@ function cartCounter() {
     for (let i = 0; i < Object.keys(cart).length; i++) {
         count += cart[Object.keys(cart)[i]]
     }
-    if (count)
-        counterEle.innerHTML = count
+
+    count ? counterEle.innerHTML = count : counterEle.innerHTML = ''
 }
 
 function saveData(data) {
@@ -109,7 +109,8 @@ function saveData(data) {
 }
 
 function loadData() {
-    return JSON.parse(localStorage.getItem("cart"))
+    let data = JSON.parse(localStorage.getItem("cart"))
+    return data ? data : {}
 }
 
 function startup() {

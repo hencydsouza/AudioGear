@@ -91,7 +91,7 @@
             <div class="nav-underline cart-icon-container">
                 <a class="nav-link active" href="cart.html" id="cart-icon">
                     <i class="bi bi-cart"></i>
-                    Cart <span class="mb-3" style="color: red;" id="cart-counter"></span>
+                    Cart <span class="mb-3" id="cart-counter"></span>
                 </a>
             </div>
         </div>
@@ -150,11 +150,10 @@
 
         <div class="d-flex justify-content-between price-container px-4">
             <h3>Subtotal:</h3>
-            <h3 class="price" id="total">&#8377; 0</h3>
+            <h3 class="price" id="total">&#8377; <span>0</span></h3>
         </div>
-        <div class="checkout-container my-3">
-            <a href="checkout.html" type="button" class="btn btn-outline-primary w-100">Checkout Now<i
-                    class="bi bi-caret-right"></i></a>
+        <div class="checkout-container my-3 d-flex">
+            <a href="checkout.html" type="button" class="btn btn-outline-primary w-50 ms-auto me-auto">Checkout Now<i class="bi bi-caret-right"></i></a>
         </div>
     </div>
 
@@ -162,6 +161,7 @@
         <h2 class="position-absolute top-50 d-flex flex-column">
             <i class="bi bi-cart-x ms-auto me-auto mb-2"></i>
             <span>You cart is empty</span>
+            <a class="btn btn-primary mt-3" href="index.html">Return to Shop</a>
         </h2>
     </div>
 

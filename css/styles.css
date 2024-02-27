@@ -277,6 +277,10 @@ body {
   background-color: #fff;
   border-color: #3c07ff;
 }
+.cart-container #cart-container-inner .red-bg {
+  background-color: red;
+  color: #fff;
+}
 @media screen and (max-width: 768px) {
   .cart-container h1 {
     text-align: center;
@@ -284,8 +288,26 @@ body {
   }
 }
 
+#cart-counter {
+  color: red;
+}
+
 .empty-msg i {
   color: #3c07ff;
+}
+.empty-msg h2 .btn {
+  font-family: Sora;
+  background-color: #3c07ff;
+  border-color: #3c07ff;
+}
+.empty-msg h2 .btn:active {
+  background-color: #fff;
+  color: #3c07ff;
+}
+.empty-msg h2 .btn:hover {
+  background-color: #3c07ff;
+  border-color: #3c07ff;
+  color: #fff;
 }
 
 .total {

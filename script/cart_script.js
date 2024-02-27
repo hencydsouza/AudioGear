@@ -1,4 +1,5 @@
-const totalEle = document.getElementById('total')
+const totalEle = document.getElementsByClassName('price')[0]
+// console.log(totalEle.textContent)
 
 const navToggler = document.getElementById('navbar-toggler-button')
 navToggler.addEventListener("click", () => {
@@ -45,7 +46,7 @@ function renderCartItems(cartArr) {
 
                         <div class="pe-lg-3 mt-auto mb-auto">
                             <div class="btn-group" id=${cartArr[i].id}>
-                                <button id="decrementBtn" class="btn btn-primary px-1 py-1 p-md-2"><i
+                                <button id="decrementBtn" class="btn btn-primary px-1 py-1 p-md-2 ${cart[cartArr[i].id]==1? 'red-bg': ''}"><i
                                         class="bi bi-dash-lg"></i></button>
                                 <div href="#" class="btn btn-outline-primary px-2 px-md-2 py-md-2 py-1">
                                     &nbsp;${cart[cartArr[i].id]}&nbsp;</div>
@@ -71,6 +72,7 @@ function renderCartItems(cartArr) {
     }
 
     totalEle.innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
+    // console.log(totalEle)
 
     const decrementBtn = document.querySelectorAll('#decrementBtn')
     const incrementBtn = document.querySelectorAll('#incrementBtn')
@@ -89,21 +91,32 @@ function renderCartItems(cartArr) {
 
 function incrementItem(id, ele) {
     const displayEle = ele.parentElement.children[1]
+    ele.parentElement.children[0].classList.remove('red-bg')
     // console.log(displayEle)
     cart[id] += 1
+    // console.log(data[id-1].price)
+    total+=data[id-1].price
+
     displayEle.innerHTML = `&nbsp;${cart[id]}&nbsp;`
     saveData(cart)
 }
 
 function decrementItem(id, ele) {
     const displayEle = ele.parentElement.children[1]
-    // console.log(ele)
+    // console.log(ele.parentElement.children[0])
     if (cart[id] >= 2) {
         cart[id] -= 1
-    } else if(cart[id]==1) {
+
+        total -= data[id-1].price
+        if(cart[id]==1)
+            ele.parentElement.children[0].classList.add('red-bg')
+    } else if (cart[id] == 1) {
         delete cart[id]
         saveData(cart)
+        // cartCounter()
         startup()
+        // renderCartItems(data)
+        location.reload()
     }
     displayEle.innerHTML = `&nbsp;${cart[id]}&nbsp;`
     saveData(cart)
@@ -116,10 +129,10 @@ function cartCounter() {
         count += cart[Object.keys(cart)[i]]
     }
     // console.log(count)
-    if (count)
-        counterEle.innerHTML = count
+    count ? counterEle.innerHTML = count : counterEle.innerHTML = ''
 
     totalEle.innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
+    // console.log(document.getElementsByClassName('price')[0])
     // console.log(totalEle)
 }
 
@@ -128,7 +141,8 @@ function saveData(data) {
 }
 
 function loadData() {
-    return JSON.parse(localStorage.getItem("cart"))
+    let data = JSON.parse(localStorage.getItem("cart"))
+    return data ? data : {}
 }
 
 function startup() {
