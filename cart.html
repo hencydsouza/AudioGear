@@ -91,7 +91,7 @@
             <div class="nav-underline cart-icon-container">
                 <a class="nav-link active" href="cart.html" id="cart-icon">
                     <i class="bi bi-cart"></i>
-                    Cart
+                    Cart <span class="mb-3" style="color: red;" id="cart-counter"></span>
                 </a>
             </div>
         </div>
@@ -157,8 +157,12 @@
                     class="bi bi-caret-right"></i></a>
         </div>
     </div>
+
     <div class="container d-flex justify-content-center empty-msg d-none">
-        <h2 class="mt-5">You cart is empty</h2>
+        <h2 class="position-absolute top-50 d-flex flex-column">
+            <i class="bi bi-cart-x ms-auto me-auto mb-2"></i>
+            <span>You cart is empty</span>
+        </h2>
     </div>
 
     <!-- footer -->

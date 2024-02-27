@@ -1,10 +1,9 @@
 const navToggler = document.getElementById('navbar-toggler-button')
 navToggler.addEventListener("click", () => {
-    // console.log(navToggler.getAttribute('aria-expanded'))
     if (navToggler.getAttribute('aria-expanded') === 'true') {
-        document.getElementById('cart-icon').style.display = 'none'
+        document.getElementById('cart-icon').classList.add('d-none')
     } else if (navToggler.getAttribute('aria-expanded') === 'false') {
-        document.getElementById('cart-icon').style.display = 'block'
+        document.getElementById('cart-icon').classList.remove('d-none')
     }
 })
 
@@ -37,6 +36,20 @@ function renderSummary() {
     document.getElementById('total').innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
 }
 
+function cartCounter() {
+    const counterEle = document.getElementById('cart-counter')
+    let count = 0
+    for (let i = 0; i < Object.keys(cart).length; i++) {
+        count += cart[Object.keys(cart)[i]]
+    }
+    // console.log(count)
+    if (count)
+        counterEle.innerHTML = count
+
+    totalEle.innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
+    // console.log(totalEle)
+}
+
 function loadData() {
     return JSON.parse(localStorage.getItem("cart"))
 }
@@ -44,5 +57,6 @@ function loadData() {
 function startup() {
     cart = loadData()
     renderSummary()
+    cartCounter()
 }
 startup()

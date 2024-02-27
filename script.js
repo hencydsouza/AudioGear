@@ -19,7 +19,9 @@ function renderProducts(renderData) {
                     <p class="card-text">${renderData[i].type}</p>
                     <p class="price">&#8377; ${renderData[i].price.toLocaleString('en-IN')}</p>
                     <div class="rating"><i class="bi bi-star-fill"></i> ${renderData[i].rating} (${renderData[i].ratingCount})</div>
-                    <a id="addBtn" class="btn btn-primary"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+                    <a id="addBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "d-none" : ''}"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+                    <a id="editBtn" href="cart.html" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}"><i class="bi bi-pen"></i> Edit</a>
+                    <a id="removeBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}"><i class="bi bi-cart-dash"></i> Remove</a>
                 </div>
             </div>
         </div>`
@@ -31,6 +33,19 @@ function renderProducts(renderData) {
             addToCart(addBtn[i])
         })
     }
+
+    const removeBtn = document.querySelectorAll('#removeBtn')
+    for(let i=0;i<removeBtn.length;i++){
+        removeBtn[i].addEventListener('click',()=>{
+            const id = removeBtn[i].parentElement.parentElement.getAttribute('id')
+            delete cart[id]
+            saveData(cart)
+            renderProducts(data)
+        })
+    }
+
+
+    cartCounter()
 }
 
 for (let i = 0; i < searchBtn.length; i++) {
@@ -50,6 +65,12 @@ for (let i = 0; i < searchBtn.length; i++) {
 
 function addToCart(e) {
     const parent = e.parentElement.parentElement
+    const removeBtn = parent.querySelector('#removeBtn')
+    const editBtn = parent.querySelector('#editBtn')
+
+    removeBtn.classList.remove('d-none')
+    editBtn.classList.remove('d-none')
+    e.classList.add('d-none')
     const id = Number.parseInt(parent.getAttribute('id'))
     // user.products.push(id)
     if (cart[id]) {
@@ -57,6 +78,7 @@ function addToCart(e) {
     } else {
         cart[id] = 1
     }
+    cartCounter()
     saveData(cart)
     // console.log(parent.getAttribute('id'))
 }
@@ -66,12 +88,21 @@ const navToggler = document.getElementById('navbar-toggler-button')
 navToggler.addEventListener("click", () => {
     // console.log(navToggler.getAttribute('aria-expanded'))
     if (navToggler.getAttribute('aria-expanded') === 'true') {
-        document.getElementById('cart-icon').style.display = 'none'
+        document.getElementById('cart-icon').classList.add('d-none')
     } else if (navToggler.getAttribute('aria-expanded') === 'false') {
-        document.getElementById('cart-icon').style.display = 'block'
+        document.getElementById('cart-icon').classList.remove('d-none')
     }
 })
 
+function cartCounter() {
+    const counterEle = document.getElementById('cart-counter')
+    let count = 0
+    for (let i = 0; i < Object.keys(cart).length; i++) {
+        count += cart[Object.keys(cart)[i]]
+    }
+    if (count)
+        counterEle.innerHTML = count
+}
 
 function saveData(data) {
     localStorage.setItem("cart", JSON.stringify(data))
@@ -82,8 +113,9 @@ function loadData() {
 }
 
 function startup() {
-    renderProducts(data)
     cart = loadData()
+    renderProducts(data)
+    cartCounter()
 }
 
 startup()

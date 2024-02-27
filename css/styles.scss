@@ -248,15 +248,31 @@ body {
         font-weight: 500;
     }
 
-    #addBtn {
+    #addBtn,
+    #editBtn {
         margin-top: 5px;
         font-size: 0.8rem;
         // width: 75%;
         border-radius: 20px;
+        border-color: $blue-color;
         background-color: $blue-color;
 
         &:active {
             color: $blue-color;
+            background-color: #fff;
+        }
+    }
+
+    #removeBtn {
+        margin-top: 5px;
+        font-size: 0.8rem;
+        // width: 75%;
+        border-radius: 20px;
+        background-color: red;
+        border-color: red;
+
+        &:active {
+            color: red;
             background-color: #fff;
         }
     }
@@ -378,6 +394,12 @@ body {
     }
 }
 
+.empty-msg {
+    i {
+        color: $blue-color;
+    }
+}
+
 .total {
     font-family: Sora;
     font-family: Sora;
@@ -477,8 +499,16 @@ body {
 }
 
 .success {
-    i{
+    i {
         font-size: 3rem;
         color: $blue-color;
     }
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
 }

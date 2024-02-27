@@ -1,9 +1,11 @@
+const totalEle = document.getElementById('total')
+
 const navToggler = document.getElementById('navbar-toggler-button')
 navToggler.addEventListener("click", () => {
     if (navToggler.getAttribute('aria-expanded') === 'true') {
-        document.getElementById('cart-icon').style.display = 'none'
+        document.getElementById('cart-icon').classList.add('d-none')
     } else if (navToggler.getAttribute('aria-expanded') === 'false') {
-        document.getElementById('cart-icon').style.display = 'block'
+        document.getElementById('cart-icon').classList.remove('d-none')
     }
 })
 
@@ -59,13 +61,16 @@ function renderCartItems(cartArr) {
 
             }
         }
-        if (!total) {
-            document.getElementsByClassName('total')[0].classList.add('d-none')
-            document.getElementsByClassName('empty-msg')[0].classList.remove('d-none')
-        }
+
     }
 
-    document.getElementById('total').innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
+    // console.log(total)
+    if (!total) {
+        document.getElementsByClassName('total')[0].classList.add('d-none')
+        document.getElementsByClassName('empty-msg')[0].classList.remove('d-none')
+    }
+
+    totalEle.innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
 
     const decrementBtn = document.querySelectorAll('#decrementBtn')
     const incrementBtn = document.querySelectorAll('#incrementBtn')
@@ -73,9 +78,11 @@ function renderCartItems(cartArr) {
         const id = decrementBtn[i].parentElement.getAttribute('id')
         decrementBtn[i].addEventListener('click', () => {
             decrementItem(id, decrementBtn[i])
+            cartCounter()
         })
         incrementBtn[i].addEventListener('click', () => {
             incrementItem(id, incrementBtn[i])
+            cartCounter()
         })
     }
 }
@@ -91,10 +98,29 @@ function incrementItem(id, ele) {
 function decrementItem(id, ele) {
     const displayEle = ele.parentElement.children[1]
     // console.log(ele)
-    if (cart[id] >= 1)
+    if (cart[id] >= 2) {
         cart[id] -= 1
+    } else if(cart[id]==1) {
+        delete cart[id]
+        saveData(cart)
+        startup()
+    }
     displayEle.innerHTML = `&nbsp;${cart[id]}&nbsp;`
     saveData(cart)
+}
+
+function cartCounter() {
+    const counterEle = document.getElementById('cart-counter')
+    let count = 0
+    for (let i = 0; i < Object.keys(cart).length; i++) {
+        count += cart[Object.keys(cart)[i]]
+    }
+    // console.log(count)
+    if (count)
+        counterEle.innerHTML = count
+
+    totalEle.innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
+    // console.log(totalEle)
 }
 
 function saveData(data) {
@@ -107,6 +133,7 @@ function loadData() {
 
 function startup() {
     cart = loadData()
+    cartCounter()
     renderCartItems(data)
 }
 
