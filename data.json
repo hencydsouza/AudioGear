@@ -6,7 +6,7 @@
             "url": "./images/headphones/Meze-99-Neo-1160-1160-1.webp",
             "type": "Closed-Back Headphone",
             "price": 12999,
-            "rating": "4.7",
+            "rating": "1.0",
             "ratingCount": "79"
         },
         {
@@ -15,7 +15,7 @@
             "url": "./images/headphones/Meze-99-Classics-gold-1160-1160-1.webp",
             "type": "Closed-Back Headphone",
             "price": 26999,
-            "rating": "4.7",
+            "rating": "3.5",
             "ratingCount": "100"
         },
         {
@@ -24,7 +24,7 @@
             "url": "./images/headphones/Sennheiser-HD560S.webp",
             "type": "Open-Back Headphone",
             "price": 15990,
-            "rating": "4.9",
+            "rating": "3.8",
             "ratingCount": "23"
         },
         {
@@ -69,7 +69,7 @@
             "url": "./images/headphones/SIVGA-SV023-01.jpg",
             "type": "Semi-Open Back Headphone",
             "price": 37999,
-            "rating": "5.0",
+            "rating": "2.6",
             "ratingCount": "2"
         },
         {

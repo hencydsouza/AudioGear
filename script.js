@@ -1,6 +1,7 @@
 const productEl = document.getElementById('products')
 const searchBtn = document.getElementsByClassName('searchBtn')
 let data = []
+let currentData = []
 let cart = {}
 
 await fetch('data.json').then((response) => response.json()).then((json) => {
@@ -50,20 +51,26 @@ function renderProducts(renderData) {
 
 for (let i = 0; i < searchBtn.length; i++) {
     searchBtn[i].addEventListener('click', () => {
+        currentData = []
         const searchBox = searchBtn[i].parentElement.firstElementChild
         const value = searchBox.value.toLowerCase()
-        searchBox.value = ''
-        let newData = []
-        for (let i = 0; i < data.length; i++) {
-            if (data[i].title.toLowerCase().includes(value)) {
-                newData.push(data[i])
+        if (searchBox.value) {
+            searchBox.value = ''
+
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].title.toLowerCase().includes(value)) {
+                    currentData.push(data[i])
+                }
             }
+
+            document.getElementById('carouselExampleAutoplaying').classList.add('d-none')
+            document.getElementById('search-result-counter').classList.remove('d-none')
+            document.getElementById('search-result-counter').children[0].innerHTML = `${currentData.length} Search Results Found`
+            renderProducts(currentData)
+        } else {
+            alert('Invalid request!')
         }
-        
-        document.getElementById('carouselExampleAutoplaying').classList.add('d-none')
-        document.getElementById('search-result-counter').classList.remove('d-none')
-        document.getElementById('search-result-counter').children[0].innerHTML = `${newData.length} Search Results Found`
-        renderProducts(newData)
+
     })
 }
 
@@ -98,6 +105,26 @@ navToggler.addEventListener("click", () => {
     }
 })
 
+const filterEl = document.getElementById('filter-container')
+for (let i = 0; i < filterEl.children.length; i++) {
+    filterEl.children[i].addEventListener("click", () => {
+        const filterRate = i + 1
+        let filterArr = []
+        for (let j = 0; j < currentData.length; j++) {
+            if (Number(currentData[j].rating) >= filterRate) {
+                filterArr.push(currentData[j])
+            }
+        }
+        filterArr.sort((a, b) => {
+            const ratingA = parseFloat(a.rating);
+            const ratingB = parseFloat(b.rating);
+            return ratingB - ratingA;
+        });
+
+        renderProducts(filterArr)
+    })
+}
+
 function cartCounter() {
     const counterEle = document.getElementById('cart-counter')
     let count = 0
@@ -119,6 +146,7 @@ function loadData() {
 
 function startup() {
     cart = loadData()
+    currentData = data
     renderProducts(data)
     cartCounter()
 }
