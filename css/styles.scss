@@ -250,6 +250,7 @@ body {
 
     #addBtn,
     #editBtn {
+        font-family: Sora;
         margin-top: 5px;
         font-size: 0.8rem;
         // width: 75%;
@@ -264,6 +265,7 @@ body {
     }
 
     #removeBtn {
+        font-family: Sora;
         margin-top: 5px;
         font-size: 0.8rem;
         // width: 75%;
@@ -541,6 +543,7 @@ body {
     .btn {
         background-color: $blue-color;
         border-color: $blue-color;
+        font-family: Sora;
 
         &:hover {
             background-color: $blue-color;

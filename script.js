@@ -20,7 +20,7 @@ function renderProducts(renderData) {
                     <p class="price">&#8377; ${renderData[i].price.toLocaleString('en-IN')}</p>
                     <div class="rating"><i class="bi bi-star-fill"></i> ${renderData[i].rating} (${renderData[i].ratingCount})</div>
                     <a id="addBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "d-none" : ''}"><i class="bi bi-cart-plus"></i> Add to Cart</a>
-                    <a id="editBtn" href="cart.html" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}"><i class="bi bi-pen"></i> View Cart</a>
+                    <a id="editBtn" href="cart.html" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}"><i class="bi bi-eye"></i> View Cart</a>
                     <a id="removeBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}"><i class="bi bi-cart-dash"></i> Remove</a>
                 </div>
             </div>

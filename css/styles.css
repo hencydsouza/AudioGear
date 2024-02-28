@@ -184,6 +184,7 @@ body {
 }
 .card #addBtn,
 .card #editBtn {
+  font-family: Sora;
   margin-top: 5px;
   font-size: 0.8rem;
   border-radius: 20px;
@@ -196,6 +197,7 @@ body {
   background-color: #fff;
 }
 .card #removeBtn {
+  font-family: Sora;
   margin-top: 5px;
   font-size: 0.8rem;
   border-radius: 20px;
@@ -385,6 +387,7 @@ body {
 .success .btn {
   background-color: #3c07ff;
   border-color: #3c07ff;
+  font-family: Sora;
 }
 .success .btn:hover {
   background-color: #3c07ff;
