@@ -40,7 +40,7 @@ body {
   align-items: center;
 }
 .navbar #cart-icon i {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-right: 0.2rem;
 }
 .navbar .cart-icon-container {
@@ -63,6 +63,7 @@ body {
 }
 
 #search-result-counter {
+  font-family: Sora;
   color: rgb(68, 68, 68);
 }
 #search-result-counter h1 {
@@ -300,6 +301,10 @@ body {
 .badge {
   background-color: #3c07ff;
   color: #fff;
+  font-size: 0.6rem;
+  margin-bottom: 1.3rem;
+  margin-left: -0.6rem;
+  z-index: 2;
 }
 
 .empty-msg i {
