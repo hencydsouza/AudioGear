@@ -59,6 +59,10 @@ for (let i = 0; i < searchBtn.length; i++) {
                 newData.push(data[i])
             }
         }
+        
+        document.getElementById('carouselExampleAutoplaying').classList.add('d-none')
+        document.getElementById('search-result-counter').classList.remove('d-none')
+        document.getElementById('search-result-counter').children[0].innerHTML = `${newData.length} Search Results Found`
         renderProducts(newData)
     })
 }

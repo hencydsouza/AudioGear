@@ -62,6 +62,13 @@ body {
   color: #fff;
 }
 
+#search-result-counter {
+  color: rgb(68, 68, 68);
+}
+#search-result-counter h1 {
+  font-weight: 700;
+}
+
 .search-bar {
   border-radius: 0;
   border-bottom: 2px solid #3c07ff;

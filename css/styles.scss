@@ -94,6 +94,14 @@ body {
     }
 }
 
+#search-result-counter{
+    color: rgb($text-color);
+
+    h1{
+        font-weight: 700;
+    }
+}
+
 .search-bar {
     // border: none;
     border-radius: 0;
