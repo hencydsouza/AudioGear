@@ -8,7 +8,8 @@
             "price": 12999,
             "rating": "1.0",
             "ratingCount": "79",
-            "inventory": 5
+            "inventory": 5,
+            "discount": 20
         },
         {
             "id": 2,

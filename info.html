@@ -7,6 +7,7 @@
     <title>Audio Gear</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -21,7 +22,6 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
     <!-- navbar -->
     <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid inner-nav">
@@ -38,61 +38,30 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-underline">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
-                    <li class="nav-item d-lg-none nav-underline" id="hidden-option">
-                        <a class="nav-link active" href="cart.html">Cart</a>
+                    <li class="nav-item d-lg-none" id="hidden-option">
+                        <a class="nav-link" href="cart.html">Cart</a>
                     </li>
                 </ul>
+
             </div>
 
             <div class="nav-underline cart-icon-container">
-                <a class="nav-link active" href="cart.html" id="cart-icon">
-                    <i class="bi bi-cart"></i>
+                <a class="nav-link" href="cart.html" id="cart-icon">
+                    <i class="bi bi-cart position-relative"></i>
                     <span class="badge" id="cart-counter"></span>
                 </a>
             </div>
         </div>
     </nav>
 
-    <div class="container cart-container my-3">
-        <h1>
-            <i class="bi bi-cart3"></i>
-            Shopping Cart
-        </h1>
+    <!-- main section -->
+    <div class="container" id="main">
 
-        <div class="alert alert-danger d-flex justify-content-between d-none" role="alert" id="alert">
-            Cannot Add to Cart! Item Out of Stock
-            <a type="button" class="btn-close" onclick="this.parentElement.classList.add('d-none')"></a>
-        </div>
-
-        <div id="cart-container-inner" class="">
-
-        </div>
-    </div>
-
-    <div class="container total">
-        <hr>
-
-        <div class="d-flex justify-content-between price-container px-4">
-            <h3>Subtotal:</h3>
-            <h3 class="price" id="total">&#8377; <span>0</span></h3>
-        </div>
-        <div class="checkout-container my-3 d-flex">
-            <a href="checkout.html" type="button" class="btn btn-outline-primary ms-auto me-auto">Checkout Now<i
-                    class="bi bi-caret-right"></i></a>
-        </div>
-    </div>
-
-    <div class="container d-flex justify-content-center empty-msg d-none">
-        <h2 class="position-absolute top-50 d-flex flex-column">
-            <i class="bi bi-cart-x ms-auto me-auto mb-2"></i>
-            <span>Your cart is empty</span>
-            <a class="btn btn-primary mt-3" href="index.html">Return to Store</a>
-        </h2>
     </div>
 
     <!-- footer -->
@@ -104,16 +73,15 @@
             <i class="bi bi-instagram"></i>
             <i class="bi bi-youtube"></i>
         </div>
-        <p> &#169; 2024, Audio Gear</p>
+        <p> &#169;
+            2024, Audio Gear</p>
     </div>
-
-    <script type="module" src="script/cart_script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-
-
+    <!-- <script type="module" src="script.js"></script> -->
+    <script type="module" src="script/info_script.js"></script>
 </body>
 
 </html>

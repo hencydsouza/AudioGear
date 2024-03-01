@@ -36,12 +36,16 @@ body {
   }
 }
 .navbar #cart-icon {
-  display: flex;
   align-items: center;
+  position: relative;
 }
 .navbar #cart-icon i {
   font-size: 1.5rem;
-  margin-right: 0.2rem;
+}
+.navbar #cart-icon span {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 1.2rem;
 }
 .navbar .cart-icon-container {
   color: rgb(68, 68, 68);
@@ -305,8 +309,6 @@ body {
   background-color: #3c07ff;
   color: #fff;
   font-size: 0.6rem;
-  margin-bottom: 1.3rem;
-  margin-left: -0.6rem;
   z-index: 2;
 }
 
@@ -420,4 +422,38 @@ body {
 #alert {
   color: black;
   font-family: Sora;
+}
+
+#zero-search {
+  font-family: Sora;
+}
+
+#info h6 {
+  color: #3c07ff;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+#info h5 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+#info .card-text {
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+#info .price {
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+#info .rating {
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(68, 68, 68);
 }/*# sourceMappingURL=styles.css.map */

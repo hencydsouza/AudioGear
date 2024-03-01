@@ -14,10 +14,10 @@ function renderProducts(renderData) {
     productEl.innerHTML = ''
     for (let i = 0; i < renderData.length; i++) {
         productEl.innerHTML +=
-            `<div class="col-6 col-sm-6 col-lg-4 col-xl-3">
+            `<div class="col-6 col-sm-6 col-lg-4 col-xl-3 info-card">
             <div class="card position-relative" id="${renderData[i].id}">
-                <div class="badge position-absolute card-badge" style="background-color: red; font-size: 0.75rem; top: 0.5rem; margin: 0;">${inventory[renderData[i].id] <= 3 ? inventory[renderData[i].id] + " in Stock" : ""}</div>
-                <img src="${renderData[i].url}" class="card-img-top" alt="...">
+                <div class="badge position-absolute card-badge" style="background-color: red; font-size: 0.75rem; top: 0.5rem; margin: 0;">${inventory[renderData[i].id] <= 3 ? inventory[renderData[i].id] == 0 ? "Out of Stock" : "Only " + inventory[renderData[i].id] + " Available" : ""}</div>
+                <img src="${renderData[i].url}" class="card-img-top info-trigger" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${renderData[i].title}</h5>
                     <p class="card-text">${renderData[i].type}</p>
@@ -51,6 +51,15 @@ function renderProducts(renderData) {
     }
     // console.log(inventory)
 
+    const infoTrigger = document.getElementsByClassName('info-trigger')
+    for (let i = 0; i < infoTrigger.length; i++) {
+        infoTrigger[i].addEventListener('click', () => {
+            const id = infoTrigger[i].parentElement.id
+            localStorage.setItem('info', id)
+            location.href = "info.html"
+        })
+    }
+
     cartCounter()
 }
 
@@ -78,6 +87,14 @@ function search(e) {
             if (data[i].title.toLowerCase().includes(value)) {
                 currentData.push(data[i])
             }
+        }
+
+        if (currentData.length == 0) {
+            document.getElementById('products-section').classList.add('d-none')
+            document.getElementById('zero-search').classList.remove('d-none')
+        } else {
+            document.getElementById('products-section').classList.remove('d-none')
+            document.getElementById('zero-search').classList.add('d-none')
         }
 
         document.getElementById('products-section').classList.add('mt-3')
@@ -143,8 +160,8 @@ for (let i = 0; i < filterEl.children.length; i++) {
             return ratingB - ratingA;
         });
 
-        currentData = filterArr
-        renderProducts(currentData)
+        // currentData = filterArr
+        renderProducts(filterArr)
     })
 }
 
