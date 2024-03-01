@@ -408,4 +408,8 @@ body {
 .success .btn:active {
   background-color: #fff;
   color: #3c07ff;
+}
+
+.about {
+  font-family: Sora;
 }/*# sourceMappingURL=styles.css.map */
