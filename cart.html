@@ -64,6 +64,11 @@
             Shopping Cart
         </h1>
 
+        <div class="alert alert-danger d-flex justify-content-between d-none" role="alert" id="alert">
+            Cannot Add to Cart! Item Out of Stock
+            <a type="button" class="btn-close" onclick="this.parentElement.classList.add('d-none')"></a>
+        </div>
+
         <div id="cart-container-inner" class="">
 
         </div>
@@ -77,7 +82,8 @@
             <h3 class="price" id="total">&#8377; <span>0</span></h3>
         </div>
         <div class="checkout-container my-3 d-flex">
-            <a href="checkout.html" type="button" class="btn btn-outline-primary ms-auto me-auto">Checkout Now<i class="bi bi-caret-right"></i></a>
+            <a href="checkout.html" type="button" class="btn btn-outline-primary ms-auto me-auto">Checkout Now<i
+                    class="bi bi-caret-right"></i></a>
         </div>
     </div>
 

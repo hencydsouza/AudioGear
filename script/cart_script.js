@@ -12,6 +12,7 @@ navToggler.addEventListener("click", () => {
 
 let data = []
 let cart = {}
+let inventory = {}
 let total = 0
 
 await fetch('data.json').then((response) => response.json()).then((json) => {
@@ -46,7 +47,7 @@ function renderCartItems(cartArr) {
 
                         <div class="pe-lg-3 mt-auto mb-auto">
                             <div class="btn-group" id=${cartArr[i].id}>
-                                <button id="decrementBtn" class="btn btn-primary px-1 py-1 p-md-2 ${cart[cartArr[i].id]==1? 'red-bg': ''}"><i
+                                <button id="decrementBtn" class="btn btn-primary px-1 py-1 p-md-2 ${cart[cartArr[i].id] == 1 ? 'red-bg' : ''}"><i
                                         class="bi bi-dash-lg"></i></button>
                                 <div href="#" class="btn btn-outline-primary px-2 px-md-2 py-md-2 py-1">
                                     &nbsp;${cart[cartArr[i].id]}&nbsp;</div>
@@ -90,15 +91,20 @@ function renderCartItems(cartArr) {
 }
 
 function incrementItem(id, ele) {
-    const displayEle = ele.parentElement.children[1]
-    ele.parentElement.children[0].classList.remove('red-bg')
-    // console.log(displayEle)
-    cart[id] += 1
-    // console.log(data[id-1].price)
-    total+=data[id-1].price
+    if (inventory[id] != 0) {
+        const displayEle = ele.parentElement.children[1]
+        ele.parentElement.children[0].classList.remove('red-bg')
+        // console.log(displayEle)
+        cart[id] += 1
+        // console.log(data[id-1].price)
+        total += data[id - 1].price
+        inventory[id] -= 1
 
-    displayEle.innerHTML = `&nbsp;${cart[id]}&nbsp;`
-    saveData(cart)
+        displayEle.innerHTML = `&nbsp;${cart[id]}&nbsp;`
+        saveData(cart)
+    } else {
+        document.getElementById('alert').classList.remove('d-none')
+    }
 }
 
 function decrementItem(id, ele) {
@@ -106,12 +112,14 @@ function decrementItem(id, ele) {
     // console.log(ele.parentElement.children[0])
     if (cart[id] >= 2) {
         cart[id] -= 1
+        inventory[id] += 1
 
-        total -= data[id-1].price
-        if(cart[id]==1)
+        total -= data[id - 1].price
+        if (cart[id] == 1)
             ele.parentElement.children[0].classList.add('red-bg')
     } else if (cart[id] == 1) {
         delete cart[id]
+        inventory[id] += 1
         saveData(cart)
         // cartCounter()
         startup()
@@ -136,17 +144,28 @@ function cartCounter() {
     // console.log(totalEle)
 }
 
-function saveData(data) {
-    localStorage.setItem("cart", JSON.stringify(data))
+function loadInventory() {
+    inventory = loadData("inventory")
+    // for(let i=0;i<data.length;i++){
+    //     if(!inventory.hasOwnProperty(data[i].id))
+    //         inventory[data[i].id] = data[i].inventory
+    // }
+    console.log(inventory)
 }
 
-function loadData() {
-    let data = JSON.parse(localStorage.getItem("cart"))
+function saveData(data) {
+    localStorage.setItem("cart", JSON.stringify(data))
+    localStorage.setItem("inventory", JSON.stringify(inventory))
+}
+
+function loadData(name) {
+    let data = JSON.parse(localStorage.getItem(name))
     return data ? data : {}
 }
 
 function startup() {
-    cart = loadData()
+    cart = loadData("cart")
+    loadInventory()
     cartCounter()
     renderCartItems(data)
 }

@@ -52,7 +52,7 @@
                 </ul>
 
                 <div class="d-flex me-3 d-none d-lg-flex" role="search">
-                    <input class="form-control me-2 search-bar" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2 search-bar searchField" type="search" placeholder="Search" aria-label="Search">
                     <button class="searchBtn btn btn-outline-success" type="submit">
                         Search
                     </button>
@@ -104,7 +104,7 @@
     <!-- search bar -->
     <div class="container mt-4 d-block d-lg-none" id="search-section">
         <div class="d-flex" role="search">
-            <input class="form-control me-2 search-bar" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2 search-bar searchField" type="search" placeholder="Search" aria-label="Search">
             <button class="searchBtn btn btn-outline-success" type="submit">
                 <!-- <i class="bi bi-search"></i> -->
                 Search
@@ -112,30 +112,32 @@
         </div>
     </div>
 
-    <!-- result count -->
-    <div class="container d-flex justify-content-start d-none mt-3" id="search-result-counter">
-        <h2>0 search results found</h2>
-    </div>
-
     <!-- products section -->
     <div class="container my-3" id="products-section">
         <!-- filter button -->
-        <div class="d-flex mb-3 justify-content-end">
-            <p class="mt-auto mb-auto me-1" style="font-weight: 600;">Sort by:</p>
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle border-0" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Rating
-                </a>
-
-                <ul class="dropdown-menu" id="filter-container">
-                    <li><a class="dropdown-item">1 & Up</a></li>
-                    <li><a class="dropdown-item">2 & Up</a></li>
-                    <li><a class="dropdown-item">3 & Up</a></li>
-                    <li><a class="dropdown-item">4 & Up</a></li>
-                    <li><a class="dropdown-item">5</a></li>
-                </ul>
+        <div class="d-flex mb-3 flex-column flex-md-row justify-content-end">
+            <!-- result count -->
+            <div class="container d-flex d-none" id="search-result-counter">
+                <h6 class="m-0 mt-auto mb-auto" style="color: black;">0 search results found</h6>
             </div>
+            <div class="d-flex">
+                <!-- <p class="mt-auto mb-auto" style="font-weight: 600;">Sort by:</p> -->
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle border-0" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Sort by Rating
+                    </a>
+
+                    <ul class="dropdown-menu" id="filter-container">
+                        <li><a class="dropdown-item">1 & Up</a></li>
+                        <li><a class="dropdown-item">2 & Up</a></li>
+                        <li><a class="dropdown-item">3 & Up</a></li>
+                        <li><a class="dropdown-item">4 & Up</a></li>
+                        <li><a class="dropdown-item">5</a></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
 
         <!-- products -->
@@ -153,7 +155,8 @@
             <i class="bi bi-instagram"></i>
             <i class="bi bi-youtube"></i>
         </div>
-        <p> &#169; 2024, Audio Gear</p>
+        <p onclick="localStorage.removeItem('inventory'); localStorage.removeItem('cart');location.reload()"> &#169;
+            2024, Audio Gear</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

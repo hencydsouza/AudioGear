@@ -1,8 +1,10 @@
 const productEl = document.getElementById('products')
 const searchBtn = document.getElementsByClassName('searchBtn')
+const searchFiled = document.getElementsByClassName('searchField')
 let data = []
 let currentData = []
 let cart = {}
+let inventory = {}
 
 await fetch('data.json').then((response) => response.json()).then((json) => {
     data = json.data
@@ -13,14 +15,15 @@ function renderProducts(renderData) {
     for (let i = 0; i < renderData.length; i++) {
         productEl.innerHTML +=
             `<div class="col-6 col-sm-6 col-lg-4 col-xl-3">
-            <div class="card" id="${renderData[i].id}">
+            <div class="card position-relative" id="${renderData[i].id}">
+                <div class="badge position-absolute card-badge" style="background-color: red; font-size: 0.75rem; top: 0.5rem; margin: 0;">${inventory[renderData[i].id] <= 3 ? inventory[renderData[i].id] + " in Stock" : ""}</div>
                 <img src="${renderData[i].url}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${renderData[i].title}</h5>
                     <p class="card-text">${renderData[i].type}</p>
                     <p class="price">&#8377; ${renderData[i].price.toLocaleString('en-IN')}</p>
                     <div class="rating"><i class="bi bi-star-fill"></i> ${renderData[i].rating} (${renderData[i].ratingCount})</div>
-                    <a id="addBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "d-none" : ''}"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+                    <a id="addBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "d-none" : ''} ${inventory[renderData[i].id] == 0 ? 'disabled' : ''}"><i class="bi bi-cart-plus"></i> Add to Cart</a>
                     <a id="editBtn" href="cart.html" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}"><i class="bi bi-eye"></i> View Cart</a>
                     <a id="removeBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}"><i class="bi bi-cart-dash"></i> Remove</a>
                 </div>
@@ -39,59 +42,78 @@ function renderProducts(renderData) {
     for (let i = 0; i < removeBtn.length; i++) {
         removeBtn[i].addEventListener('click', () => {
             const id = removeBtn[i].parentElement.parentElement.getAttribute('id')
+            inventory[id] += cart[id]
             delete cart[id]
             saveData(cart)
-            renderProducts(data)
+            renderProducts(currentData)
             cartCounter()
         })
     }
+    // console.log(inventory)
 
     cartCounter()
 }
 
 for (let i = 0; i < searchBtn.length; i++) {
     searchBtn[i].addEventListener('click', () => {
-        currentData = []
-        const searchBox = searchBtn[i].parentElement.firstElementChild
-        const value = searchBox.value.toLowerCase()
-        if (searchBox.value) {
-            searchBox.value = ''
+        search(searchBtn[i].previousElementSibling)
+    })
+}
 
-            for (let i = 0; i < data.length; i++) {
-                if (data[i].title.toLowerCase().includes(value)) {
-                    currentData.push(data[i])
-                }
+for (let i = 0; i < searchFiled.length; i++) {
+    searchFiled[i].addEventListener('keydown', (e) => {
+        if (e.key == 'Enter')
+            search(searchFiled[i])
+    })
+}
+
+function search(e) {
+    currentData = []
+    const searchBox = e
+    const value = searchBox.value.toLowerCase().trim()
+    if (searchBox.value) {
+        // searchBox.value = ''
+
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].title.toLowerCase().includes(value)) {
+                currentData.push(data[i])
             }
-
-            document.getElementById('carouselExampleAutoplaying').classList.add('d-none')
-            document.getElementById('search-result-counter').classList.remove('d-none')
-            document.getElementById('search-result-counter').children[0].innerHTML = `Showing ${currentData.length} results for "${value}"`
-            renderProducts(currentData)
-        } else {
-            alert('Invalid request!')
         }
 
-    })
+        document.getElementById('products-section').classList.add('mt-3')
+        document.getElementById('products-section').classList.add('mt-lg-0')
+        document.getElementById('carouselExampleAutoplaying').classList.add('d-none')
+        document.getElementById('search-result-counter').classList.remove('d-none')
+        document.getElementById('search-result-counter').children[0].innerHTML = `Showing ${currentData.length} results for "${value}"`
+        renderProducts(currentData)
+    } else {
+        // alert('Search box empty!')
+        location.reload()
+    }
 }
 
 function addToCart(e) {
     const parent = e.parentElement.parentElement
     const removeBtn = parent.querySelector('#removeBtn')
     const editBtn = parent.querySelector('#editBtn')
-
-    removeBtn.classList.remove('d-none')
-    editBtn.classList.remove('d-none')
-    e.classList.add('d-none')
     const id = Number.parseInt(parent.getAttribute('id'))
-    // user.products.push(id)
-    if (cart[id]) {
-        cart[id] += 1
-    } else {
-        cart[id] = 1
+
+    if (inventory[id] != 0) {
+        removeBtn.classList.remove('d-none')
+        editBtn.classList.remove('d-none')
+        e.classList.add('d-none')
+        // user.products.push(id)
+        if (cart[id]) {
+            cart[id] += 1
+        } else {
+            cart[id] = 1
+        }
+        inventory[id] -= 1
+        cartCounter()
+        renderProducts(currentData)
+        saveData(cart)
+        // console.log(parent.getAttribute('id'))
     }
-    cartCounter()
-    saveData(cart)
-    // console.log(parent.getAttribute('id'))
 }
 
 // cart button toggler
@@ -121,7 +143,8 @@ for (let i = 0; i < filterEl.children.length; i++) {
             return ratingB - ratingA;
         });
 
-        renderProducts(filterArr)
+        currentData = filterArr
+        renderProducts(currentData)
     })
 }
 
@@ -135,18 +158,28 @@ function cartCounter() {
     count ? counterEle.innerHTML = count : counterEle.innerHTML = ''
 }
 
-function saveData(data) {
-    localStorage.setItem("cart", JSON.stringify(data))
+function loadInventory() {
+    inventory = loadData("inventory")
+    for (let i = 0; i < data.length; i++) {
+        if (!inventory.hasOwnProperty(data[i].id))
+            inventory[data[i].id] = data[i].inventory
+    }
 }
 
-function loadData() {
-    let data = JSON.parse(localStorage.getItem("cart"))
+function saveData(data) {
+    localStorage.setItem("cart", JSON.stringify(data))
+    localStorage.setItem("inventory", JSON.stringify(inventory))
+}
+
+function loadData(name) {
+    let data = JSON.parse(localStorage.getItem(name))
     return data ? data : {}
 }
 
 function startup() {
-    cart = loadData()
+    cart = loadData("cart")
     currentData = data
+    loadInventory()
     renderProducts(data)
     cartCounter()
 }

@@ -7,7 +7,8 @@
             "type": "Closed-Back Headphone",
             "price": 12999,
             "rating": "1.0",
-            "ratingCount": "79"
+            "ratingCount": "79",
+            "inventory": 5
         },
         {
             "id": 2,
@@ -16,7 +17,8 @@
             "type": "Closed-Back Headphone",
             "price": 26999,
             "rating": "3.5",
-            "ratingCount": "100"
+            "ratingCount": "100",
+            "inventory": 5
         },
         {
             "id": 3,
@@ -25,7 +27,8 @@
             "type": "Open-Back Headphone",
             "price": 15990,
             "rating": "3.8",
-            "ratingCount": "23"
+            "ratingCount": "23",
+            "inventory": 5
         },
         {
             "id": 4,
@@ -34,7 +37,8 @@
             "type": "Open-Back Headphone",
             "price": 19990,
             "rating": "4.8",
-            "ratingCount": "21"
+            "ratingCount": "21",
+            "inventory": 5
         },
         {
             "id": 5,
@@ -43,7 +47,8 @@
             "type": "Planar Magnetic Open Backs",
             "price": 39990,
             "rating": "4.6",
-            "ratingCount": "5"
+            "ratingCount": "5",
+            "inventory": 5
         },
         {
             "id": 6,
@@ -52,7 +57,8 @@
             "type": "Open-Back Headphone",
             "price": 22490,
             "rating": "4.8",
-            "ratingCount": "50"
+            "ratingCount": "50",
+            "inventory": 5
         },
         {
             "id": 7,
@@ -61,7 +67,8 @@
             "type": "Open-Back Headphone",
             "price": 24990,
             "rating": "5.0",
-            "ratingCount": "2"
+            "ratingCount": "2",
+            "inventory": 5
         },
         {
             "id": 8,
@@ -70,7 +77,8 @@
             "type": "Semi-Open Back Headphone",
             "price": 37999,
             "rating": "2.6",
-            "ratingCount": "2"
+            "ratingCount": "2",
+            "inventory": 5
         },
         {
             "id": 9,
@@ -79,7 +87,8 @@
             "type": "Open-Back Headphone",
             "price": 13999,
             "rating": "4.5",
-            "ratingCount": "27"
+            "ratingCount": "27",
+            "inventory": 5
         }
     ]
 }

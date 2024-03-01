@@ -83,14 +83,14 @@ body {
     border-radius: 8px;
     border-color: $blue-color;
 
-    &:active {
-        background: $blue-color;
-        border-color: $blue-color;
-    }
-
     &:hover {
         background-color: $blue-color;
         color: #fff;
+    }
+
+    &:active {
+        background: $blue-color;
+        border-color: $blue-color;
     }
 }
 
@@ -303,6 +303,10 @@ body {
         margin-bottom: 4px;
         letter-spacing: 1px;
         // color: rgb($pirce-color);
+    }
+
+    &-badge{
+        color: red;
     }
 }
 
@@ -579,5 +583,11 @@ body {
 // }
 
 .about{
+    font-family: Sora;
+}
+
+#alert{
+    // font-size: 1.2rem;
+    color: black;
     font-family: Sora;
 }

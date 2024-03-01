@@ -81,6 +81,7 @@
     <script>
         function saveData(data) {
             localStorage.setItem("cart", JSON.stringify(data))
+            localStorage.setItem("inventory", JSON.stringify({}))
         }
 
         saveData({})
