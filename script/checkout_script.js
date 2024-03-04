@@ -11,6 +11,7 @@ let cart = {}
 let data = []
 
 let total = 0
+let total_discount = 0
 
 await fetch('data.json').then((response) => response.json()).then((json) => {
     data = json.data
@@ -25,16 +26,30 @@ function renderSummary() {
             let key = data[i].id
 
             if (cart[key] > 0) {
+                let discount = data[i].discount || 0
+                let discountedPrice = discount ? data[i].price - Math.ceil((data[i].price * discount) / 100) : 0
+                total_discount += discountedPrice ? discountedPrice * cart[key] : data[i].price * cart[key];
                 // console.log(key)
                 // orderSummary.innerHTML += `<li class="list-group-item d-flex justify-content-between"><span><span>${cart[key]} x</span> ${data[i].title}</span><span>&#8377; ${data[i].price.toLocaleString('en-IN')}</span> <span>&#8377; ${data[i].price*cart[key]}</span></li>`
-                orderSummary.innerHTML += `<li class="list-group-item d-flex justify-content-between"><span><span>${cart[key]} x</span> ${data[i].title}</span> <span>&#8377; ${data[i].price*cart[key]}</span></li>`
+                orderSummary.innerHTML += `<li class="list-group-item d-flex justify-content-between"><span><span>${cart[key]} x</span> ${data[i].title}</span> 
+                    ${discountedPrice ?
+                        `<span><s style="color: rgb(68,68,68);"><span>&#8377; ${data[i].price * cart[key]}</span></s><span style="color: green;"> &#8377; ${discountedPrice * cart[key]}</span></span>`
+                        : `<span>&#8377; ${data[i].price * cart[key]}</span>`}
+                    
+                </li>`
 
                 total += data[i].price * cart[key]
             }
         }
     }
     // console.log(total)
-    document.getElementById('total').innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
+    // if (total_discount)
+    //     total_discount = total - total_discount
+    // console.log(total_discount)
+    if (!total_discount)
+        document.getElementById('total').innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
+    else
+        document.getElementById('total').innerHTML = `<span class="d-flex flex-column"><s>&#8377; ${total.toLocaleString('en-IN')}</s> <span style="color: green;"> &#8377; ${total_discount.toLocaleString('en-IN')}</span></span>`
 }
 
 function cartCounter() {

@@ -19,7 +19,8 @@
             "price": 26999,
             "rating": "3.5",
             "ratingCount": "100",
-            "inventory": 5
+            "inventory": 5,
+            "discount": 50
         },
         {
             "id": 3,

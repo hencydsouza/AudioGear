@@ -17,6 +17,8 @@ let inventory = {}
 let id
 
 function display() {
+    let discount = data.discount || 0
+    let discountedPrice = discount ? data.price - Math.ceil((data.price * discount) / 100) : 0
     mainEl.innerHTML = `
     <div class="card mb-3 text-start" id="info" style="font-family: Sora;">
         <div class="row g-0">
@@ -28,11 +30,18 @@ function display() {
                 <h6 class="brand">${data.title.split('-')[0]}</h6>
                 <h5 class="card-title">${data.title}</h5>
                 <p class="card-text">${data.type}</p>
-                <p class="price">&#8377; ${data.price.toLocaleString('en-IN')}</p>
+                <p class="card-text my-2" style="text-align: justify;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet mauris sed erat sodales rhoncus et ac massa. Mauris blandit pellentesque elementum. Integer feugiat lectus non risus viverra, a pulvinar nulla eleifend. Vestibulum diam sapien, mattis quis mattis id, mattis quis turpis. Duis dictum ante quam, nec pretium sem elementum sit amet. In aliquet et ante in egestas.
+                </p>
+                ${discount ?
+            `<span id="discountedPrice">&#8377; ` + discountedPrice.toLocaleString('en-IN') + "</span> <s>&#8377; " + data.price + `</s> `+`<span id="discount">` + discount + "% off</span>"
+            : "&#8377;" + data.price.toLocaleString('en-IN')
+        }
                 <div class="rating"><i class="bi bi-star-fill"></i> ${data.rating} (${data.ratingCount})</div>
                 <a id="addBtn" class="btn btn-primary ${Object.keys(cart).includes(data.id.toString()) ? "d-none" : ''} ${inventory[data.id] == 0 ? 'disabled' : ''}"><i class="bi bi-cart-plus"></i> Add to Cart</a>
                 <a id="editBtn" href="cart.html" class="btn btn-primary ${Object.keys(cart).includes(data.id.toString()) ? "" : 'd-none'}"><i class="bi bi-eye"></i> View Cart</a>
                 <a id="removeBtn" class="btn btn-primary ${Object.keys(cart).includes(data.id.toString()) ? "" : 'd-none'}"><i class="bi bi-cart-dash"></i> Remove</a>
+                
             </div>
             </div>
         </div>

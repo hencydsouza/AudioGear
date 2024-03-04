@@ -10,9 +10,12 @@ await fetch('data.json').then((response) => response.json()).then((json) => {
     data = json.data
 })
 
+// <p class="price">&#8377; ${renderData[i].price.toLocaleString('en-IN')}</p>
 function renderProducts(renderData) {
     productEl.innerHTML = ''
     for (let i = 0; i < renderData.length; i++) {
+        let discount = renderData[i].discount || 0
+        let discountedPrice = discount ? renderData[i].price - Math.ceil((renderData[i].price * discount) / 100) : 0
         productEl.innerHTML +=
             `<div class="col-6 col-sm-6 col-lg-4 col-xl-3 info-card">
             <div class="card position-relative" id="${renderData[i].id}">
@@ -21,14 +24,20 @@ function renderProducts(renderData) {
                 <div class="card-body">
                     <h5 class="card-title">${renderData[i].title}</h5>
                     <p class="card-text">${renderData[i].type}</p>
-                    <p class="price">&#8377; ${renderData[i].price.toLocaleString('en-IN')}</p>
+                    <p class="price">
+                    ${discount ?
+                `<span id="discount">` + discount + "% off </span> <s>&#8377; " + renderData[i].price + `</s> &#8377; ` + discountedPrice.toLocaleString('en-IN')
+                : "&#8377;" + renderData[i].price.toLocaleString('en-IN')
+            }
+                    </p >
                     <div class="rating"><i class="bi bi-star-fill"></i> ${renderData[i].rating} (${renderData[i].ratingCount})</div>
-                    <a id="addBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "d-none" : ''} ${inventory[renderData[i].id] == 0 ? 'disabled' : ''}"><i class="bi bi-cart-plus"></i> Add to Cart</a>
-                    <a id="editBtn" href="cart.html" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}"><i class="bi bi-eye"></i> View Cart</a>
-                    <a id="removeBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}"><i class="bi bi-cart-dash"></i> Remove</a>
-                </div>
-            </div>
-        </div>`
+                    <a id="addBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "d-none" : ''} ${inventory[renderData[i].id] == 0 ? 'disabled' : ''}" > <i class="bi bi-cart-plus"></i> Add to Cart</a >
+        <a id="editBtn" href="cart.html" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}" > <i class="bi bi-eye"></i> View Cart</a >
+            <a id="removeBtn" class="btn btn-primary ${Object.keys(cart).includes(renderData[i].id.toString()) ? "" : 'd-none'}" > <i class="bi bi-cart-dash"></i> Remove</a >
+                </div >
+            </div >
+        </div > `
+        // console.log(renderData[i].price, discount, discountedPrice)
     }
 
     const addBtn = document.querySelectorAll('#addBtn')

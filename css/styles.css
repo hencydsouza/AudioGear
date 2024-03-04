@@ -456,4 +456,14 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
   background-color: rgb(68, 68, 68);
+}
+
+#discount {
+  color: green;
+}
+
+#discountedPrice {
+  font-size: 1.5rem;
+  color: black;
+  margin-right: 0.5rem;
 }/*# sourceMappingURL=styles.css.map */
