@@ -35,14 +35,14 @@ body {
     height: 30px;
   }
 }
-.navbar #cart-icon {
+.navbar #cart-icon, .navbar #cart-icon-2 {
   align-items: center;
   position: relative;
 }
-.navbar #cart-icon i {
+.navbar #cart-icon i, .navbar #cart-icon-2 i {
   font-size: 1.5rem;
 }
-.navbar #cart-icon span {
+.navbar #cart-icon span, .navbar #cart-icon-2 span {
   position: absolute;
   bottom: 1.4rem;
   left: 1.2rem;
@@ -466,4 +466,55 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.5rem;
   color: black;
   margin-right: 0.5rem;
+}
+
+#login-container {
+  font-family: Sora;
+  text-align: center;
+  max-width: 50rem;
+}
+#login-container .login-card {
+  background: #efefef;
+  border-radius: 5px;
+  padding: 2rem 4rem;
+  width: 100%;
+}
+#login-container .login-card h1 {
+  font-weight: 700;
+  color: rgb(68, 68, 68);
+  margin-bottom: 3rem;
+}
+#login-container .btn {
+  background-color: #444444;
+  border: #444444 solid;
+  font-family: Roboto;
+  font-weight: 600;
+  letter-spacing: 0.196rem;
+  border-radius: 3rem;
+  padding: 1rem 0;
+}
+#login-container input {
+  padding: 1.2rem 1.1rem;
+  background-color: transparent;
+  font-family: Roboto;
+  border-radius: 0.7rem;
+}
+#login-container input::-moz-placeholder {
+  color: rgb(156, 156, 156);
+}
+#login-container input::placeholder {
+  color: rgb(156, 156, 156);
+}
+@media screen and (max-width: 575px) {
+  #login-container .login-card {
+    padding: 2rem 0;
+  }
+}
+@media screen and (min-width: 992px) {
+  #login-container {
+    max-width: 60rem;
+  }
+  #login-container .login-card {
+    padding: 2rem 8rem;
+  }
 }/*# sourceMappingURL=styles.css.map */

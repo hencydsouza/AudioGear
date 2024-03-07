@@ -49,21 +49,32 @@
                     <li class="nav-item d-lg-none" id="hidden-option-2">
                         <a class="nav-link" href="#search-section">Search</a>
                     </li>
+                    <li class="nav-item d-lg-none" id="hidden-option-3">
+                        <a class="nav-link" href="#search-section">Profile</a>
+                    </li>
                 </ul>
 
                 <div class="d-flex me-3 d-none d-lg-flex" role="search">
-                    <input class="form-control me-2 search-bar searchField" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2 search-bar searchField" type="search" placeholder="Search"
+                        aria-label="Search">
                     <button class="searchBtn btn btn-outline-success" type="submit">
                         Search
                     </button>
                 </div>
             </div>
 
-            <div class="nav-underline cart-icon-container">
-                <a class="nav-link" href="cart.html" id="cart-icon">
-                    <i class="bi bi-cart"></i>
-                    <span class="badge" id="cart-counter"></span>
-                </a>
+            <div class="d-flex">
+                <div class="nav-underline cart-icon-container">
+                    <a class="nav-link" href="cart.html" id="cart-icon">
+                        <i class="bi bi-cart"></i>
+                        <span class="badge" id="cart-counter"></span>
+                    </a>
+                </div>
+                <div class="nav-underline cart-icon-container ms-3">
+                    <a class="nav-link" href="#" id="cart-icon-2">
+                        <i class="bi bi-person"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -104,7 +115,8 @@
     <!-- search bar -->
     <div class="container mt-4 d-block d-lg-none" id="search-section">
         <div class="d-flex" role="search">
-            <input class="form-control me-2 search-bar searchField" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2 search-bar searchField" type="search" placeholder="Search"
+                aria-label="Search">
             <button class="searchBtn btn btn-outline-success" type="submit">
                 <!-- <i class="bi bi-search"></i> -->
                 Search

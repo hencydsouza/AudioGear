@@ -148,8 +148,10 @@ navToggler.addEventListener("click", () => {
     // console.log(navToggler.getAttribute('aria-expanded'))
     if (navToggler.getAttribute('aria-expanded') === 'true') {
         document.getElementById('cart-icon').classList.add('d-none')
+        document.getElementById('cart-icon-2').classList.add('d-none')
     } else if (navToggler.getAttribute('aria-expanded') === 'false') {
         document.getElementById('cart-icon').classList.remove('d-none')
+        document.getElementById('cart-icon-2').classList.remove('d-none')
     }
 })
 

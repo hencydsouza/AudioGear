@@ -2,8 +2,10 @@ const navToggler = document.getElementById('navbar-toggler-button')
 navToggler.addEventListener("click", () => {
     if (navToggler.getAttribute('aria-expanded') === 'true') {
         document.getElementById('cart-icon').classList.add('d-none')
+        document.getElementById('cart-icon-2').classList.add('d-none')
     } else if (navToggler.getAttribute('aria-expanded') === 'false') {
         document.getElementById('cart-icon').classList.remove('d-none')
+        document.getElementById('cart-icon-2').classList.remove('d-none')
     }
 })
 
@@ -33,8 +35,8 @@ function renderSummary() {
                 // orderSummary.innerHTML += `<li class="list-group-item d-flex justify-content-between"><span><span>${cart[key]} x</span> ${data[i].title}</span><span>&#8377; ${data[i].price.toLocaleString('en-IN')}</span> <span>&#8377; ${data[i].price*cart[key]}</span></li>`
                 orderSummary.innerHTML += `<li class="list-group-item d-flex justify-content-between"><span><span>${cart[key]} x</span> ${data[i].title}</span> 
                     ${discountedPrice ?
-                        `<span><s style="color: rgb(68,68,68);"><span>&#8377; ${data[i].price * cart[key]}</span></s><span style="color: green;"> &#8377; ${discountedPrice * cart[key]}</span></span>`
-                        : `<span>&#8377; ${data[i].price * cart[key]}</span>`}
+                        `<span><span> &#8377; ${(discountedPrice * cart[key]).toLocaleString('en-IN')}</span></span>`
+                        : `<span>&#8377; ${(data[i].price * cart[key]).toLocaleString('en-IN')}</span>`}
                     
                 </li>`
 
@@ -49,7 +51,7 @@ function renderSummary() {
     if (!total_discount)
         document.getElementById('total').innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
     else
-        document.getElementById('total').innerHTML = `<span class="d-flex flex-column"><s>&#8377; ${total.toLocaleString('en-IN')}</s> <span style="color: green;"> &#8377; ${total_discount.toLocaleString('en-IN')}</span></span>`
+        document.getElementById('total').innerHTML = `<span class="d-flex flex-column"><span> &#8377; ${total_discount.toLocaleString('en-IN')}</span></span>`
 }
 
 function cartCounter() {

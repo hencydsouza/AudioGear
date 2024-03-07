@@ -60,7 +60,7 @@ body {
         }
     }
 
-    #cart-icon {
+    #cart-icon,#cart-icon-2 {
         // justify-content: center;
         // display: flex;
         align-items: center;
@@ -653,8 +653,70 @@ body::-webkit-scrollbar-thumb {
     color: green;
 }
 
-#discountedPrice{
+#discountedPrice {
     font-size: 1.5rem;
     color: black;
     margin-right: 0.5rem;
+}
+
+#login-container {
+    font-family: Sora;
+    text-align: center;
+
+    max-width: 50rem;
+
+    .login-card {
+        background: #efefef;
+        border-radius: 5px;
+        padding: 2rem 4rem;
+
+        h1 {
+            font-weight: 700;
+            color: rgb($text-color);
+            margin-bottom: 3rem;
+        }
+
+        width: 100%;
+
+
+    }
+
+    .btn {
+        background-color: #444444;
+        border: #444444 solid;
+        font-family: Roboto;
+        font-weight: 600;
+        letter-spacing: 0.196rem;
+        border-radius: 3rem;
+        padding: 1rem 0;
+    }
+
+    input {
+        padding: 1.2rem 1.1rem;
+        background-color: transparent;
+        font-family: Roboto;
+        border-radius: 0.7rem;
+        // font-size: 0.9rem;
+
+        &::placeholder {
+            color: rgb(156, 156, 156);
+        }
+    }
+
+    @media screen and (max-width: 575px) {
+        .login-card {
+            padding: 2rem 0;
+
+        }
+    }
+
+    @media screen and (min-width: 992px) {
+        .login-card {
+        padding: 2rem 8rem;
+
+        }
+
+        max-width: 60rem;
+
+    }
 }

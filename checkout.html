@@ -49,11 +49,18 @@
 
             </div>
 
-            <div class="nav-underline cart-icon-container">
-                <a class="nav-link" href="cart.html" id="cart-icon">
-                    <i class="bi bi-cart"></i>
-                    <span class="badge" id="cart-counter"></span>
-                </a>
+            <div class="d-flex">
+                <div class="nav-underline cart-icon-container">
+                    <a class="nav-link active" href="cart.html" id="cart-icon">
+                        <i class="bi bi-cart"></i>
+                        <span class="badge" id="cart-counter"></span>
+                    </a>
+                </div>
+                <div class="nav-underline cart-icon-container ms-3">
+                    <a class="nav-link" href="#" id="cart-icon-2">
+                        <i class="bi bi-person"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -83,7 +90,8 @@
             </div>
             <div class="col-md-6">
                 <label for="phoneNo" class="form-label">Phone No.</label>
-                <input type="text" pattern="[0-9]+" minlength="10" maxlength="10" placeholder="10 Digit Phone No." class="form-control" id="phoneNo" required>
+                <input type="text" pattern="[0-9]+" minlength="10" maxlength="10" placeholder="10 Digit Phone No."
+                    class="form-control" id="phoneNo" required>
             </div>
             <div class="col-12">
                 <label for="inputAddress" class="form-label">Address Line 1</label>
@@ -103,7 +111,8 @@
             </div>
             <div class="col-md-2">
                 <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" minlength="6" maxlength="6" placeholder="6 Digit Zip Code" class="form-control" id="inputZip" required>
+                <input type="text" minlength="6" maxlength="6" placeholder="6 Digit Zip Code" class="form-control"
+                    id="inputZip" required>
             </div>
 
             <!-- <hr> -->
@@ -119,19 +128,23 @@
             </div>
             <div class="col-md-6">
                 <label for="cardNumber" class="form-label">Card Number</label>
-                <input type="text" placeholder="16 Digit Card Number" pattern="[0-9]+" minlength="16" maxlength="16" class="form-control" id="cardNumber" required>
+                <input type="text" placeholder="16 Digit Card Number" pattern="[0-9]+" minlength="16" maxlength="16"
+                    class="form-control" id="cardNumber" required>
             </div>
             <div class="col-md-6">
                 <label for="expMonth" class="form-label">Exp Month</label>
-                <input type="text" maxlength="2" minlength="1" pattern="0?[1-9]|1[0-2]" placeholder="Month [1-12]" class="form-control" id="expMonth" required>
+                <input type="text" maxlength="2" minlength="1" pattern="0?[1-9]|1[0-2]" placeholder="Month [1-12]"
+                    class="form-control" id="expMonth" required>
             </div>
             <div class="col-md-4">
                 <label for="expYear" class="form-label">Exp Year</label>
-                <input type="text" placeholder="20XX" minlength="4" maxlength="4" pattern="20[0-9]+" class="form-control" id="expYear" required>
+                <input type="text" placeholder="20XX" minlength="4" maxlength="4" pattern="20[0-9]+"
+                    class="form-control" id="expYear" required>
             </div>
             <div class="col-md-2">
                 <label for="cvv" class="form-label">CVV</label>
-                <input type="text" minlength="3" maxlength="3" pattern="[0-9]+" placeholder="3 Digit CVV" class="form-control" id="cvv" required>
+                <input type="text" minlength="3" maxlength="3" pattern="[0-9]+" placeholder="3 Digit CVV"
+                    class="form-control" id="cvv" required>
             </div>
 
             <!-- order summary -->

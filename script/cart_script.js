@@ -5,8 +5,10 @@ const navToggler = document.getElementById('navbar-toggler-button')
 navToggler.addEventListener("click", () => {
     if (navToggler.getAttribute('aria-expanded') === 'true') {
         document.getElementById('cart-icon').classList.add('d-none')
+        document.getElementById('cart-icon-2').classList.add('d-none')
     } else if (navToggler.getAttribute('aria-expanded') === 'false') {
         document.getElementById('cart-icon').classList.remove('d-none')
+        document.getElementById('cart-icon-2').classList.remove('d-none')
     }
 })
 
@@ -89,7 +91,7 @@ function renderCartItems(cartArr) {
     if ((total_discount == total) || total_discount == 0)
         totalEle.innerHTML = `&#8377; ${total.toLocaleString('en-IN')}`
     else
-        totalEle.innerHTML = `<span class="d-flex flex-column"><s style="color: rgb(68,68,68);">&#8377; ${total.toLocaleString('en-IN')}</s><span style="color: green;"> &#8377; ${total_discount.toLocaleString('en-IN')}</span></span>`
+        totalEle.innerHTML = `<span class="d-flex"><s style="color: rgb(68,68,68);" class="me-2">&#8377; ${total.toLocaleString('en-IN')}</s><span style="color: green;"> &#8377; ${total_discount.toLocaleString('en-IN')}</span></span>`
     // console.log(totalEle)
 
     const decrementBtn = document.querySelectorAll('#decrementBtn')
@@ -116,7 +118,7 @@ function incrementItem(id, ele) {
         // console.log(data[id-1].price)
 
         total += data[id - 1].price
-        inventory[id] -= 1
+        inventor [id] -= 1
 
         displayEle.innerHTML = `&nbsp;${cart[id]}&nbsp;`
         saveData(cart)
