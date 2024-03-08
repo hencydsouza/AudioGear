@@ -37,7 +37,7 @@ function renderCartItems(cartArr) {
                 total_discount += discountedPrice ? discountedPrice * cart[key] : cartArr[i].price * cart[key];
                 // console.log(total_discount)
                 cartContainer.innerHTML +=
-                    `<div class="card my-4">
+                    `<div class="card my-4 shadow-sm">
                         <div class="row g-0">
                             <div class="col-md-4 p-2">
                                 <img src="${cartArr[i].url}" class="img-fluid rounded-start w-25 mt-2"

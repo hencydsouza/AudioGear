@@ -19,7 +19,7 @@ function renderProducts(renderData) {
         let discountedPrice = discount ? renderData[i].price - Math.ceil((renderData[i].price * discount) / 100) : 0
         productEl.innerHTML +=
             `<div class="col-6 col-sm-6 col-lg-4 col-xl-3 info-card">
-            <div class="card position-relative" id="${renderData[i].id}">
+            <div class="card position-relative shadow-sm" id="${renderData[i].id}">
                 <div class="badge position-absolute card-badge" style="background-color: red; font-size: 0.75rem; top: 0.5rem; margin: 0;">${inventory[renderData[i].id] <= 3 ? inventory[renderData[i].id] == 0 ? "Out of Stock" : "Only " + inventory[renderData[i].id] + " Available" : ""}</div>
                 <img src="${renderData[i].url}" class="card-img-top info-trigger" alt="...">
                 <div class="card-body">
