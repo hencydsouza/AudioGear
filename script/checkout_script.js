@@ -11,12 +11,14 @@ navToggler.addEventListener("click", () => {
 
 let cart = {}
 let data = []
+let user_details = {}
 
 let total = 0
 let total_discount = 0
 
 await fetch('data.json').then((response) => response.json()).then((json) => {
     data = json.data
+    user_details = json.user[localStorage.getItem("user-key")]
 })
 
 const orderSummary = document.getElementById('order-summary')
@@ -64,14 +66,45 @@ function cartCounter() {
     count ? counterEle.innerHTML = count : counterEle.innerHTML = ''
 }
 
-function loadData() {
-    let data = JSON.parse(localStorage.getItem("cart"))
+function loadData(name) {
+    let data = JSON.parse(localStorage.getItem(name))
     return data ? data : {}
 }
 
+function check_login() {
+    if (loadData("logged-in") === true) {
+        return true
+    } else {
+        return false
+    }
+}
+
+function loadUSerData(){
+    document.getElementById('firstName').value = user_details.first
+    document.getElementById('lastName').value = user_details.last
+    document.getElementById('email').value = user_details.email
+    document.getElementById('phoneNo').value = user_details.phno
+    document.getElementById('inputAddress').value = user_details.address
+    document.getElementById('inputAddress').value = user_details.address
+    document.getElementById('city').value = user_details.city
+    document.getElementById('state').value = user_details.state
+    document.getElementById('zip').value = user_details.zip
+}
+
+
 function startup() {
-    cart = loadData()
+    cart = loadData("cart")
     renderSummary()
     cartCounter()
+    loadUSerData()
+
+    if (!check_login()) {
+        // alert("Please Login to Proceed!")
+        window.location = "index.html"
+    }
+
+    if(total == 0 || total_discount == 0){
+        window.location = "index.html"
+    }
 }
 startup()

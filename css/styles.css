@@ -35,14 +35,20 @@ body {
     height: 30px;
   }
 }
-.navbar #cart-icon, .navbar #cart-icon-2 {
+.navbar #cart-icon,
+.navbar #cart-icon-2,
+.navbar #cart-icon-3 {
   align-items: center;
   position: relative;
 }
-.navbar #cart-icon i, .navbar #cart-icon-2 i {
+.navbar #cart-icon i,
+.navbar #cart-icon-2 i,
+.navbar #cart-icon-3 i {
   font-size: 1.5rem;
 }
-.navbar #cart-icon span, .navbar #cart-icon-2 span {
+.navbar #cart-icon span,
+.navbar #cart-icon-2 span,
+.navbar #cart-icon-3 span {
   position: absolute;
   bottom: 1.4rem;
   left: 1.2rem;
@@ -315,6 +321,9 @@ body {
 .empty-msg i {
   color: #3c07ff;
 }
+.empty-msg h2 {
+  color: rgb(68, 68, 68);
+}
 .empty-msg h2 .btn {
   font-family: Sora;
   background-color: #3c07ff;
@@ -474,7 +483,7 @@ body::-webkit-scrollbar-thumb {
   max-width: 50rem;
 }
 #login-container .login-card {
-  background: #efefef;
+  background-color: #fff;
   border-radius: 5px;
   padding: 2rem 4rem;
   width: 100%;
@@ -485,13 +494,18 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 3rem;
 }
 #login-container .btn {
-  background-color: #444444;
-  border: #444444 solid;
+  background-color: #3c07ff;
+  border: 1px #3c07ff solid;
   font-family: Roboto;
   font-weight: 600;
   letter-spacing: 0.196rem;
   border-radius: 3rem;
   padding: 1rem 0;
+}
+#login-container .btn:active {
+  background-color: transparent;
+  border-color: #3c07ff;
+  color: #3c07ff;
 }
 #login-container input {
   padding: 1.2rem 1.1rem;
@@ -516,5 +530,65 @@ body::-webkit-scrollbar-thumb {
   }
   #login-container .login-card {
     padding: 2rem 8rem;
+  }
+}
+
+#profile-title h1 {
+  font-weight: 600;
+  font-family: Sora;
+}
+#profile-title h1 i {
+  color: #3c07ff;
+}
+@media screen and (max-width: 768px) {
+  #profile-title h1 {
+    text-align: center;
+  }
+}
+
+#profile-container {
+  background-color: #fff;
+  border-radius: 0.6rem;
+  padding: 1rem 0;
+  font-family: Sora;
+}
+#profile-container .list-title {
+  display: block;
+  font-size: 0.8rem;
+  color: rgb(68, 68, 68);
+}
+#profile-container .list-data {
+  font-size: 1rem;
+  font-weight: 500;
+}
+#profile-container .logout-btn {
+  background-color: red;
+  border-color: red;
+  font-size: 0.9rem;
+}
+#profile-container .logout-btn:active {
+  background-color: transparent;
+  border-color: red;
+  color: red;
+}
+#profile-container .edit-btn {
+  background-color: #3c07ff;
+  border-color: #3c07ff;
+  font-size: 0.9rem;
+}
+#profile-container .edit-btn:active {
+  background-color: transparent;
+  border-color: #3c07ff;
+  color: #3c07ff;
+}
+@media screen and (max-width: 575px) {
+  #profile-container .list-title {
+    font-size: 0.7rem;
+  }
+  #profile-container .list-data {
+    font-size: 0.9rem;
+  }
+  #profile-container .btn {
+    font-size: 0.7rem;
   }
 }/*# sourceMappingURL=styles.css.map */

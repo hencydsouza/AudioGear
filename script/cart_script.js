@@ -118,7 +118,7 @@ function incrementItem(id, ele) {
         // console.log(data[id-1].price)
 
         total += data[id - 1].price
-        inventor [id] -= 1
+        inventory[id] -= 1
 
         displayEle.innerHTML = `&nbsp;${cart[id]}&nbsp;`
         saveData(cart)
@@ -187,11 +187,26 @@ function loadData(name) {
     return data ? data : {}
 }
 
+function check_login() {
+    if (loadData("logged-in") === true) {
+        return true
+    } else {
+        return false
+    }
+}
+
 function startup() {
     cart = loadData("cart")
     loadInventory()
     cartCounter()
     renderCartItems(data)
+
+    if (!check_login()) {
+        // alert("Please Login to Proceed!")
+        window.location = "index.html"
+    } else {
+        // d-lg-none
+    }
 }
 
 startup()

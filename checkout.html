@@ -45,6 +45,9 @@
                     <li class="nav-item d-lg-none nav-underline" id="hidden-option">
                         <a class="nav-link active" href="">Cart</a>
                     </li>
+                    <li class="nav-item d-lg-none" id="hidden-option-3">
+                        <a class="nav-link" href="profile.html">Profile</a>
+                    </li>
                 </ul>
 
             </div>
@@ -56,8 +59,8 @@
                         <span class="badge" id="cart-counter"></span>
                     </a>
                 </div>
-                <div class="nav-underline cart-icon-container ms-3">
-                    <a class="nav-link" href="#" id="cart-icon-2">
+                <div class="nav-underline cart-icon-container ms-3 d-none d-lg-block">
+                    <a class="nav-link" href="profile.html" id="cart-icon-2">
                         <i class="bi bi-person"></i>
                     </a>
                 </div>
@@ -103,16 +106,16 @@
             </div>
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity" required>
+                <input type="text" class="form-control" id="city" required>
             </div>
             <div class="col-md-4">
                 <label for="validationDefault04" class="form-label">State</label>
-                <input type="text" class="form-control" id="validationDefault04" required>
+                <input type="text" class="form-control" id="state" required>
             </div>
             <div class="col-md-2">
                 <label for="inputZip" class="form-label">Zip</label>
                 <input type="text" minlength="6" maxlength="6" placeholder="6 Digit Zip Code" class="form-control"
-                    id="inputZip" required>
+                    id="zip" required>
             </div>
 
             <!-- <hr> -->

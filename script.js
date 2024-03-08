@@ -5,6 +5,7 @@ let data = []
 let currentData = []
 let cart = {}
 let inventory = {}
+let user = {}
 
 await fetch('data.json').then((response) => response.json()).then((json) => {
     data = json.data
@@ -119,26 +120,31 @@ function search(e) {
 }
 
 function addToCart(e) {
-    const parent = e.parentElement.parentElement
-    const removeBtn = parent.querySelector('#removeBtn')
-    const editBtn = parent.querySelector('#editBtn')
-    const id = Number.parseInt(parent.getAttribute('id'))
+    if (check_login()) {
+        const parent = e.parentElement.parentElement
+        const removeBtn = parent.querySelector('#removeBtn')
+        const editBtn = parent.querySelector('#editBtn')
+        const id = Number.parseInt(parent.getAttribute('id'))
 
-    if (inventory[id] != 0) {
-        removeBtn.classList.remove('d-none')
-        editBtn.classList.remove('d-none')
-        e.classList.add('d-none')
-        // user.products.push(id)
-        if (cart[id]) {
-            cart[id] += 1
-        } else {
-            cart[id] = 1
+        if (inventory[id] != 0) {
+            removeBtn.classList.remove('d-none')
+            editBtn.classList.remove('d-none')
+            e.classList.add('d-none')
+            // user.products.push(id)
+            if (cart[id]) {
+                cart[id] += 1
+            } else {
+                cart[id] = 1
+            }
+            inventory[id] -= 1
+            cartCounter()
+            renderProducts(currentData)
+            saveData(cart)
+            // console.log(parent.getAttribute('id'))
         }
-        inventory[id] -= 1
-        cartCounter()
-        renderProducts(currentData)
-        saveData(cart)
-        // console.log(parent.getAttribute('id'))
+    } else {
+        alert('You are not logged in!')
+        window.location = "login.html"
     }
 }
 
@@ -149,9 +155,11 @@ navToggler.addEventListener("click", () => {
     if (navToggler.getAttribute('aria-expanded') === 'true') {
         document.getElementById('cart-icon').classList.add('d-none')
         document.getElementById('cart-icon-2').classList.add('d-none')
+        document.getElementById('cart-icon-3').classList.add('d-none')
     } else if (navToggler.getAttribute('aria-expanded') === 'false') {
         document.getElementById('cart-icon').classList.remove('d-none')
         document.getElementById('cart-icon-2').classList.remove('d-none')
+        document.getElementById('cart-icon-3').classList.remove('d-none')
     }
 })
 
@@ -175,6 +183,15 @@ for (let i = 0; i < filterEl.children.length; i++) {
         renderProducts(filterArr)
     })
 }
+
+document.getElementById('cart-redirect').addEventListener("click", () => {
+    if (check_login()) {
+        window.location = "cart.html"
+    } else {
+        alert('You are not logged in!')
+        window.location = "login.html"
+    }
+})
 
 function cartCounter() {
     const counterEle = document.getElementById('cart-counter')
@@ -204,12 +221,28 @@ function loadData(name) {
     return data ? data : {}
 }
 
+function check_login() {
+    if (loadData("logged-in") === true) {
+        return true
+    } else {
+        return false
+    }
+}
+
 function startup() {
     cart = loadData("cart")
     currentData = data
     loadInventory()
     renderProducts(data)
     cartCounter()
+
+    if(!check_login()){
+        document.getElementById('hidden-option-3').classList.add("d-none")
+        document.getElementById('login-feature-icon').classList.remove("d-lg-block")
+        document.getElementById('login-icon').classList.add("d-lg-block")
+    } else {
+        document.getElementById('hidden-option-4').classList.add("d-none")
+    }
 }
 
 startup()

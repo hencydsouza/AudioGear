@@ -56,25 +56,27 @@
                 </div> -->
             </div>
 
-            <div class="nav-underline cart-icon-container">
+            <div style="width: 1.5rem;"></div>
+            <!-- <div class="nav-underline cart-icon-container">
                 <a class="nav-link" href="cart.html" id="cart-icon">
                     <i class="bi bi-cart"></i>
                     <span class="badge" id="cart-counter"></span>
                 </a>
-            </div>
+            </div> -->
         </div>
     </nav>
 
     <div id="login-container" class="container-md m-auto">
         <div class="login-card">
             <div class="p-4">
-                <form class="">
+                <form onsubmit="return login()" action="index.html">
                     <h1>Login</h1>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                            placeholder="E-mail" required>
                     </div>
                     <div class="mb-3">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" id="password" placeholder="Password" required>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">LOGIN</button>
                 </form>
@@ -96,10 +98,33 @@
             2024, Audio Gear</p>
     </div>
 
+    <script>
+        function login() {
+            data = JSON.parse(sessionStorage.getItem("users"))
+            console.log(data)
+
+            let email = document.getElementById('email').value
+            let password = document.getElementById('password').value
+
+            for (let i = 0; i < data.length; i++) {
+                if (email === data[i].email && password === data[i].password) {
+                    localStorage.setItem('logged-in', true)
+                    localStorage.setItem('user-key', i)
+                    sessionStorage.clear('users')
+                    return true
+                }
+            }
+            alert('Invalid E-mail or Password')
+            return false
+        }
+    </script>
+
+    <script type="module" src="script/login_script.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script type="module" src="script.js"></script>
+    <!-- <script type="module" src="script.js"></script> -->
 </body>
 
 </html>

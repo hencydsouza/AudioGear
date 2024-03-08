@@ -92,5 +92,40 @@
             "ratingCount": "27",
             "inventory": 5
         }
+    ],
+    "user": [
+        {
+            "email": "user@gmail.com",
+            "password": "1234",
+            "first": "user",
+            "last": "01",
+            "phno": "1234567890",
+            "address": "example address",
+            "city": "example-city",
+            "state": "example-state",
+            "zip": 123456
+        },
+        {
+            "email": "user2@gmail.com",
+            "password": "12345",
+            "first": "user",
+            "last": "02",
+            "phno": "1234567890",
+            "address": "example address",
+            "city": "example-city",
+            "state": "example-state",
+            "zip": 123456
+        },
+        {
+            "email": "chinmaya@gmail.com",
+            "password": "1234",
+            "first": "Chinmaya",
+            "last": "Rao",
+            "phno": "1234567890",
+            "address": "Belman house",
+            "city": "Udupi",
+            "state": "Karnataka",
+            "zip": 574113
+        }
     ]
 }

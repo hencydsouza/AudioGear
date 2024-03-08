@@ -60,7 +60,9 @@ body {
         }
     }
 
-    #cart-icon,#cart-icon-2 {
+    #cart-icon,
+    #cart-icon-2,
+    #cart-icon-3 {
         // justify-content: center;
         // display: flex;
         align-items: center;
@@ -443,6 +445,7 @@ body {
     }
 
     h2 {
+        color: rgb($text-color);
         .btn {
             font-family: Sora;
             background-color: $blue-color;
@@ -666,7 +669,8 @@ body::-webkit-scrollbar-thumb {
     max-width: 50rem;
 
     .login-card {
-        background: #efefef;
+        // background: #efefef;
+        background-color: #fff;
         border-radius: 5px;
         padding: 2rem 4rem;
 
@@ -682,13 +686,21 @@ body::-webkit-scrollbar-thumb {
     }
 
     .btn {
-        background-color: #444444;
-        border: #444444 solid;
+        // background-color: #444444;
+        background-color: $blue-color;
+        // border: #444444 solid;
+        border: 1px $blue-color solid;
         font-family: Roboto;
         font-weight: 600;
         letter-spacing: 0.196rem;
         border-radius: 3rem;
         padding: 1rem 0;
+
+        &:active{
+            background-color: transparent;
+            border-color: $blue-color;
+            color: $blue-color;
+        }
     }
 
     input {
@@ -712,11 +724,94 @@ body::-webkit-scrollbar-thumb {
 
     @media screen and (min-width: 992px) {
         .login-card {
-        padding: 2rem 8rem;
+            padding: 2rem 8rem;
 
         }
 
         max-width: 60rem;
 
+    }
+}
+
+#profile-title {
+    h1 {
+        font-weight: 600;
+        font-family: Sora;
+
+        i {
+            color: $blue-color;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        h1{
+            text-align: center;
+        }
+    }
+}
+
+#profile-container {
+    background-color: #fff;
+    border-radius: 0.6rem;
+    padding: 1rem 0;
+    font-family: Sora;
+
+    // i {
+    //     color: linear-gradient(220deg, rgba(60, 7, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    // }
+
+    .list-title {
+        display: block;
+        font-size: 0.8rem;
+        color: rgb($text-color);
+    }
+
+    .list-data {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .logout-btn {
+        background-color: red;
+        border-color: red;
+        // font-family: Roboto;
+        // font-weight: 600;
+        // letter-spacing: 0.1rem;
+        font-size: 0.9rem;
+
+        &:active {
+            background-color: transparent;
+            border-color: red;
+            color: red;
+        }
+    }
+
+    .edit-btn {
+        background-color: $blue-color;
+        border-color: $blue-color;
+        // font-family: Roboto;
+        // font-weight: 600;
+        // letter-spacing: 0.1rem;
+        font-size: 0.9rem;
+
+        &:active {
+            background-color: transparent;
+            border-color: $blue-color;
+            color: $blue-color;
+        }
+    }
+
+    @media screen and (max-width: 575px) {
+        .list-title {
+            font-size: 0.7rem;
+        }
+
+        .list-data {
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            font-size: 0.7rem;
+        }
     }
 }

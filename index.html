@@ -46,11 +46,14 @@
                     <li class="nav-item d-lg-none" id="hidden-option">
                         <a class="nav-link" href="cart.html">Cart</a>
                     </li>
-                    <li class="nav-item d-lg-none" id="hidden-option-2">
-                        <a class="nav-link" href="#search-section">Search</a>
+                    <li class="nav-item d-lg-none login-feature" id="hidden-option-3">
+                        <a class="nav-link" href="profile.html">Profile</a>
                     </li>
-                    <li class="nav-item d-lg-none" id="hidden-option-3">
-                        <a class="nav-link" href="#search-section">Profile</a>
+                    <li class="nav-item d-lg-none" id="hidden-option-4">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item d-none" id="hidden-option-2">
+                        <a class="nav-link" href="#search-section">Search</a>
                     </li>
                 </ul>
 
@@ -63,17 +66,24 @@
                 </div>
             </div>
 
-            <div class="d-flex">
-                <div class="nav-underline cart-icon-container">
-                    <a class="nav-link" href="cart.html" id="cart-icon">
-                        <i class="bi bi-cart"></i>
-                        <span class="badge" id="cart-counter"></span>
-                    </a>
-                </div>
-                <div class="nav-underline cart-icon-container ms-3">
-                    <a class="nav-link" href="#" id="cart-icon-2">
-                        <i class="bi bi-person"></i>
-                    </a>
+            <div>
+                <div class="d-flex" id="icon-container">
+                    <div class="nav-underline cart-icon-container" id="cart-redirect">
+                        <a class="nav-link" id="cart-icon">
+                            <i class="bi bi-cart"></i>
+                            <span class="badge" id="cart-counter"></span>
+                        </a>
+                    </div>
+                    <div class="nav-underline cart-icon-container ms-3 d-none d-lg-block" id="login-feature-icon">
+                        <a class="nav-link" href="profile.html" id="cart-icon-2">
+                            <i class="bi bi-person"></i>
+                        </a>
+                    </div>
+                    <div class="nav-underline cart-icon-container ms-3 d-none" id="login-icon">
+                        <a class="nav-link" href="login.html" id="cart-icon-2">
+                            <i class="bi bi-box-arrow-in-left"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -169,7 +179,7 @@
             <i class="bi bi-instagram"></i>
             <i class="bi bi-youtube"></i>
         </div>
-        <p onclick="localStorage.removeItem('inventory'); localStorage.removeItem('cart');location.reload()"> &#169;
+        <p onclick="localStorage.clear();location.reload()"> &#169;
             2024, Audio Gear</p>
     </div>
 

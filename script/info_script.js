@@ -34,7 +34,7 @@ function display() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet mauris sed erat sodales rhoncus et ac massa. Mauris blandit pellentesque elementum. Integer feugiat lectus non risus viverra, a pulvinar nulla eleifend. Vestibulum diam sapien, mattis quis mattis id, mattis quis turpis. Duis dictum ante quam, nec pretium sem elementum sit amet. In aliquet et ante in egestas.
                 </p>
                 ${discount ?
-            `<span id="discountedPrice">&#8377; ` + discountedPrice.toLocaleString('en-IN') + "</span> <s>&#8377; " + data.price + `</s> `+`<span id="discount">` + discount + "% off</span>"
+            `<span id="discountedPrice">&#8377; ` + discountedPrice.toLocaleString('en-IN') + "</span> <s>&#8377; " + data.price + `</s> ` + `<span id="discount">` + discount + "% off</span>"
             : "&#8377;" + data.price.toLocaleString('en-IN')
         }
                 <div class="rating"><i class="bi bi-star-fill"></i> ${data.rating} (${data.ratingCount})</div>
@@ -68,25 +68,30 @@ function display() {
 }
 
 function addToCart(e) {
-    const parent = e.parentElement.parentElement
-    const removeBtn = parent.querySelector('#removeBtn')
-    const editBtn = parent.querySelector('#editBtn')
-    const id = Number.parseInt(data.id)
+    if (check_login()) {
+        const parent = e.parentElement.parentElement
+        const removeBtn = parent.querySelector('#removeBtn')
+        const editBtn = parent.querySelector('#editBtn')
+        const id = Number.parseInt(data.id)
 
-    if (inventory[id] != 0) {
-        removeBtn.classList.remove('d-none')
-        editBtn.classList.remove('d-none')
-        e.classList.add('d-none')
-        // user.products.push(id)
-        if (cart[id]) {
-            cart[id] += 1
-        } else {
-            cart[id] = 1
+        if (inventory[id] != 0) {
+            removeBtn.classList.remove('d-none')
+            editBtn.classList.remove('d-none')
+            e.classList.add('d-none')
+            // user.products.push(id)
+            if (cart[id]) {
+                cart[id] += 1
+            } else {
+                cart[id] = 1
+            }
+            inventory[id] -= 1
+            cartCounter()
+            saveData(cart)
+            // console.log(parent.getAttribute('id'))
         }
-        inventory[id] -= 1
-        cartCounter()
-        saveData(cart)
-        // console.log(parent.getAttribute('id'))
+    } else {
+        alert('You are not logged in!')
+        window.location = "login.html"
     }
 }
 
@@ -116,6 +121,14 @@ function loadData(name) {
 function saveData(data) {
     localStorage.setItem("cart", JSON.stringify(data))
     localStorage.setItem("inventory", JSON.stringify(inventory))
+}
+
+function check_login() {
+    if (loadData("logged-in") === true) {
+        return true
+    } else {
+        return false
+    }
 }
 
 async function startup() {
